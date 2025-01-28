@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/novusbarber/static/css/main.6338c921.css",
-    "main.js": "/novusbarber/static/js/main.a6d08d7b.js",
+    "main.js": "/novusbarber/static/js/main.c80003c4.js",
     "static/js/952.0ae6a47a.chunk.js": "/novusbarber/static/js/952.0ae6a47a.chunk.js",
     "static/media/logoNovusTech.png": "/novusbarber/static/media/logoNovusTech.b93cd39e6f6917377c74.png",
     "index.html": "/novusbarber/index.html",
     "main.6338c921.css.map": "/novusbarber/static/css/main.6338c921.css.map",
-    "main.a6d08d7b.js.map": "/novusbarber/static/js/main.a6d08d7b.js.map",
+    "main.c80003c4.js.map": "/novusbarber/static/js/main.c80003c4.js.map",
     "952.0ae6a47a.chunk.js.map": "/novusbarber/static/js/952.0ae6a47a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6338c921.css",
-    "static/js/main.a6d08d7b.js"
+    "static/js/main.c80003c4.js"
   ]
 }
