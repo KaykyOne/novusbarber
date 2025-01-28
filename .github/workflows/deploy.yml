@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # ou a sua branch principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Passo 1: Fazer checkout do código
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Passo 2: Configurar Node.js e instalar dependências
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: |
+        npm install
+
+    # Passo 3: Rodar o build do React com variáveis de ambiente
+    - name: Build React app
+      env:
+        REACT_APP_SUPABASE_URL: ${{ secrets.REACT_APP_SUPABASE_URL }}  # Passando a URL do Supabase
+        REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.REACT_APP_SUPABASE_ANON_KEY }}  # Passando a chave Anon do Supabase
+      run: |
+        npm run build
+
+    # Passo 4: Configurar Git para deploy
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: build
