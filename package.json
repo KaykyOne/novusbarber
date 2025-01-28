@@ -1,7 +1,7 @@
 {
   "name": "novusbarber",
   "version": "0.1.0",
-  "homepage": "https://github.com/KaykyOne/novusbarber.git",
+  "homepage": "https://kaykyone.github.io/novusbarber",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",

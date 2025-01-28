@@ -9,14 +9,15 @@ import Confirm from './pages/customer/Confirm';
 import Conclusion from './pages/customer/Conclusion';
 import Cancel from './pages/customer/Cancel';
 import LoginAdm from './pages/adm/LoginAdm';
+import { BrowserRouter } from 'react-router-dom'; // Importação do Router
 
 function App() {
   return (
     <div>
       <title>NovusBarber</title>
-      <Router basename="/novusbarber"> {/* Aqui está a modificação */}
+      <BrowserRouter basename="/novusbarber"> {/* Aqui está a modificação */}
         <Routes>
-          <Route path="/:id" element={<Home />} />
+          <Route path="/" element={<Home />} /> {/* Corrigido aqui */}
           <Route path="/error" element={<Error />} />
           <Route path="/selectprofessional" element={<SelectProfessional />} />
           <Route path="/selectdateandhour" element={<SelectDateAndHour />} />
@@ -26,7 +27,7 @@ function App() {
           <Route path="/cancel" element={<Cancel />} />
           <Route path="/loginadm" element={<LoginAdm />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
