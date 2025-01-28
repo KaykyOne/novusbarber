@@ -1,0 +1,84 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import '../../css/LoginAdm.css';
+import Button from '../../components/Button';
+import { useLocation } from 'react-router-dom'; // Hook para acessar o state
+import BackIcon from '@mui/icons-material/ArrowBack';
+import ConfirmIcon from '@mui/icons-material/Check';
+import { restoreColors } from '../../suport/Desgin';
+
+export default function LoginAdm() {
+    const location = useLocation(); // Acessa o state da navegação
+    const navigate = useNavigate();
+    const { id } = location.state || {};
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [statusMessage, setStatusMessage] = useState('');
+    const [statusType, setStatusType] = useState('');
+
+    useEffect(() => {
+        restoreColors();
+    }, [])
+
+    const handleLogin = () => {
+        if (email === 'admin@novusbarber.com' && senha === '123456') {
+            setStatusMessage("Login realizado com sucesso!");
+            setStatusType("success");
+            setTimeout(() => navigate('/admin'), 1000);
+        } else {
+            setStatusMessage("E-mail ou senha incorretos.");
+            setStatusType("error");
+        }
+    };
+
+    const handleBack = () => {
+        if (id) {
+            navigate(`/${id}`);
+        } else {
+            console.error("ID não definido!");
+        }
+    };
+
+    return (
+        <div className="login-container">
+            <h1 className="title">Painel Administrativo</h1>
+            <h3 className="subtitle">Acesse sua conta</h3>
+
+            <div className="input-group">
+                <input 
+                    value={email} 
+                    className="input" 
+                    onChange={(e) => setEmail(e.target.value)} 
+                    type="email" 
+                    placeholder="E-mail" 
+                />
+            </div>
+
+            <div className="input-group">
+                <input 
+                    value={senha} 
+                    className="input" 
+                    onChange={(e) => setSenha(e.target.value)} 
+                    type="password" 
+                    placeholder="Senha" 
+                />
+            </div>
+
+            {statusMessage && (
+                <div className={`status-message ${statusType}`}>
+                    {statusMessage}
+                </div>
+            )}
+
+            <Button classNameType="btn-primary" onClickButton={handleLogin}>
+                Entrar
+                <ConfirmIcon/>
+            </Button>
+
+            <Button classNameType="btn-secondary" onClickButton={handleBack}>
+                Voltar
+                <BackIcon />
+            </Button>
+        </div>
+    );
+}

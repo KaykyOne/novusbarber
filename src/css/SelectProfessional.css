@@ -1,0 +1,43 @@
+/* Container geral */
+
+/* Estilo para os botões dos profissionais */
+.professional-button {
+    background-color: var(--cor-primaria);
+    color: #FFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+}
+
+.professional-button:hover {
+    background-color: var(--cor-secundaria);
+}
+
+/* Texto de erro */
+.error-container {
+    text-align: center;
+    color: red;
+}
+
+.error-text {
+    font-size: 16px;
+}
+
+/* Texto de carregamento */
+.loading-text {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Lista de profissionais */
+.professionals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+}

@@ -1,0 +1,86 @@
+
+/* Estilo para os botões dos profissionais */
+.professional-button {
+    background-color: var(--cor-primaria);
+    color: #FFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+}
+
+.professional-button:hover {
+    background-color: var(--cor-secundaria);
+}
+
+/* Texto de erro */
+.error-container {
+    text-align: center;
+    color: red;
+}
+
+.error-text {
+    font-size: 16px;
+}
+
+/* Texto de carregamento */
+.loading-text {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Lista de profissionais */
+.professionals-list {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.professional-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding: 15px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 12px;
+    background: var(--cor-secundaria); /* Azul gradiente */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.professional-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.professional-button div {
+    margin: 5px 0;
+}
+
+.choose-button {
+    background: white;
+    color: var(--cor-primaria);
+    border: var(--cor-secundaria);;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.choose-button:hover {
+    background: #007bff;
+    color: white;
+}

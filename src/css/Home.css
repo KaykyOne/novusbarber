@@ -1,0 +1,54 @@
+.header {
+    background-color: var(--cor-secundaria);
+    color: white;
+    text-shadow: 
+    -1px -1px 0 black, /* Sombra para cima e esquerda */
+     1px -1px 0 black, /* Sombra para cima e direita */
+    -1px  1px 0 black, /* Sombra para baixo e esquerda */
+     1px  1px 0 black; /* Sombra para baixo e direita */
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.header h1 {
+    color: white;
+    margin: 0;
+    font-size: 24px;
+}
+
+.header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    width: 100;
+}
+
+.logo {
+    margin: 20px 0;
+    background-color: red;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.title {
+    color: var(--cor-primaria);
+    font-size: 20px;
+    margin: 15px 0 5px;
+}
+
+.subtitle {
+    color: var(--cor-primaria);
+    font-size: 14px;
+    margin: 0 0 20px;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.logoNovus {
+    width: 8%;
+    height: 8%;
+    border-radius: 30%;
+}

@@ -1,0 +1,130 @@
+.confirm-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    width: 100%;
+    max-width: 500px; /* Ajuste a largura conforme necessário */
+    box-sizing: border-box;
+  }
+  
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--cor-primaria); /* Usa a cor primária para o título */
+}
+
+.input-group {
+    width: 100%;
+    max-width: 350px; /* Tamanho mais adequado para os inputs */
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+}
+
+.input-group-alert input::placeholder {
+    color: red; /* Cor vermelha para erro no placeholder */
+}
+
+.input-group-alert input {
+    border-color: red; /* Borda vermelha para erro */
+}
+
+
+.phone-input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    width: 100%;
+    max-width: 350px;
+}
+
+.flag {
+    max-height: 20%;
+    max-width: 20%;
+    margin: 5px;
+    margin-top: 10px;
+}
+
+.summary-box {
+    background: var(--cor-primaria);
+    color: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px; /* Aumentei um pouco a largura para melhor adaptação */
+    border-radius: 10px;
+    text-align: left;
+    margin-top: 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar mais destaque */
+}
+
+.summary-box h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.summary-box p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffd700; /* Cor dourada para destacar o valor */
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 350px; /* Garantir que os botões tenham um tamanho adequado */
+}
+
+
+button:hover {
+    opacity: 0.8; /* Efeito de hover para os botões */
+}
+
+/* Estilos específicos para os tipos de botões */
+.btn-primary {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--cor-primaria), 10%);
+}
+
+.btn-secondary:hover {
+    background-color: darken(#f44336, 10%);
+}

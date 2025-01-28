@@ -1,0 +1,202 @@
+
+/* Estilos globais */
+:root {
+  --cor-primaria: #3498db; /* Cor primária */
+  --cor-secundaria: #2ecc71; /* Cor secundária */
+  --cor-fundo: #f4f4f4; /* Cor de fundo */
+  --cor-texto: #333; /* Cor do texto */
+  height: 100%; /* Garante que o :root ocupe toda a altura da página */
+  width: 96%;  /* Garante que o :root ocupe toda a largura */
+}
+
+/* Estilo para o body */
+body {
+  width: 100%;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: var(--cor-fundo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow-x: hidden; /* Impede o overflow horizontal */
+}
+
+/* Container geral que centraliza os elementos */
+.container {
+  display: flex;
+  flex-direction: column; /* Coloca os elementos em uma coluna */
+  align-items: center;
+  justify-content: flex; /* Alinha no topo, caso haja outros conteúdos */
+  width: 100%;
+  padding: 20px;
+  background-color: transparent;
+  box-sizing: border-box; /* Garante que o padding não altere as dimensões */
+}
+
+/* Estilo para o DatePicker (input de data) */
+.custom-datepicker-input {
+  width: 80%; /* Ajuste a largura conforme necessário */
+  max-width: 400px; /* Limita a largura máxima */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.custom-datepicker-input:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Estilo do calendário */
+.custom-calendar {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-calendar .react-datepicker__day--selected {
+  background-color: var(--cor-primaria);
+  color: #fff;
+  border-radius: 50%;
+}
+
+.custom-calendar .react-datepicker__day--today {
+  font-weight: bold;
+  color: var(--cor-secundaria);
+}
+
+/* Estilo para os botões de horário */
+.hour-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center; /* Garante que os botões fiquem centralizados */
+  width: 100%;
+  padding: 20px 0;
+}
+
+.hour-button {
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1 1 100px; /* Flexível, com largura mínima de 100px */
+  max-width: 150px; /* Limita a largura máxima dos botões */
+}
+
+.hour-button:hover {
+  background-color: var(--cor-primaria);
+  transform: scale(1.05);
+}
+
+.hour-button:active {
+  background-color: var(--cor-primaria);
+  transform: scale(0.95);
+}
+
+/* Estilo de botões */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+  width: 100%;
+}
+
+button.btn-primary {
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Espaçamento entre o texto e o ícone */
+}
+
+button.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--cor-secundaria);
+  color: var(--cor-secundaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Espaçamento entre o texto e o ícone */
+}
+
+/* Define o tamanho do ícone dentro de cada tipo de botão */
+/* Torna o botão um contêiner flexível */
+/* Ajustar a flexbox para botões */
+button.btn-primary, 
+button.btn-secondary, 
+button.btn-tertiary {
+  display: flex;
+  align-items: center; /* Garante que o texto e o ícone fiquem centralizados verticalmente */
+  justify-content: space-between; /* Coloca o ícone no fim do botão, ou 'flex-end' */
+  gap: 8px; /* Adiciona espaçamento entre o texto e o ícone */
+}
+
+/* Estilo para o ícone */
+.btn-primary svg,
+.btn-secondary svg,
+.btn-tertiary svg {
+  font-size: 1.2rem;  /* Ajuste o tamanho do ícone */
+  margin-left: 8px; /* Espaçamento entre o texto e o ícone */
+}
+
+button.btn-secondary:hover {
+  background-color: var(--cor-secundaria);
+  color: white;
+}
+
+button.btn-primary:hover {
+  background-color: var(--cor-secundaria);
+  color: white;
+}
+
+button.btn-tertiary {
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: none;
+  padding: 10px 20px; /* Ajustei o padding para ser mais consistente com os outros botões */
+  font-size: 16px;
+  display: flex;
+  align-items: center; /* Garante que o conteúdo fique centralizado verticalmente */
+  justify-content: space-between; /* Coloca o texto e o ícone nas extremidades */
+  gap: 8px; /* Adiciona um espaço entre o texto e o ícone */
+}
+
+/* Estilo para cabeçalhos */
+h1, h2 {
+  color: var(--cor-primaria);
+}
+
+h3, h4 {
+  color: var(--cor-secundaria);
+}
+
+/* Estilo de fundo para cards ou seções */
+.card {
+  background-color: var(--cor-secundaria);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mensagens de erro */
+.error-text {
+  color: red;
+  font-size: 16px;
+  margin-top: 10px;
+}

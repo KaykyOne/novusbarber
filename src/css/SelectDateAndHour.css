@@ -1,0 +1,93 @@
+/* Alinhar o conteúdo dentro da container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    padding: 20px;
+    height: 100vh; /* A container ocupa toda a altura da tela */
+}
+
+/* Para o DatePicker (input de data) */
+.custom-datepicker-input {
+    width: 80%; /* Ajuste a largura conforme necessário */
+    max-width: 400px; /* Limita a largura máxima */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+/* Foco do DatePicker */
+.custom-datepicker-input:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Estilo do calendário */
+.custom-calendar {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-calendar .react-datepicker__day--selected {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    border-radius: 50%;
+}
+
+.custom-calendar .react-datepicker__day--today {
+    font-weight: bold;
+    color: var(--cor-secundaria);
+}
+
+/* Container para os botões de horário (alinhamento e responsividade) */
+.hour-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* Garante que os botões fiquem centralizados */
+    width: 100%; /* Garante que a largura dos botões ocupe toda a largura da tela */
+}
+
+/* Estilo dos botões de horário */
+.hour-button {
+    background-color: var(--cor-secundaria); /* Cor azul */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1 1 100px; /* Flexível, com largura mínima de 100px */
+    max-width: 150px; /* Limita a largura máxima dos botões */
+}
+
+.hour-button:hover {
+    background-color: var(--cor-primaria); /* Cor mais escura ao passar o mouse */
+    transform: scale(1.05);
+}
+
+.hour-button:active {
+    background-color: var(--cor-primaria); /* Cor ao clicar */
+    transform: scale(0.95);
+}
+
+/* Estilo para mensagens de erro e status */
+.error-text {
+    text-align: center;
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.loading-container {
+    text-align: center;
+    margin-top: 20px;
+}
