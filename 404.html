@@ -8,9 +8,13 @@
   </head>
   <body>
     <script>
-      // Redireciona para o index.html mantendo a URL original
+      // Pega o caminho completo sem o domínio
       var path = window.location.pathname;
-      window.location.replace("/novusbarber" + path);
+
+      // Verifica se já está dentro de "/novusbarber", se não, redireciona
+      if (!path.startsWith("/novusbarber")) {
+        window.location.replace("/novusbarber" + path);
+      }
     </script>
   </body>
 </html>
