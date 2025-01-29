@@ -13,7 +13,8 @@ import LogoNovusTech from '../imgs/logoNovusTech.png'
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState(null);
-  const { id } = useParams();
+  const pathSegments = window.location.pathname.split('/'); // Divide a URL por "/"
+  const id = pathSegments[pathSegments.length - 1] || null; // Último segmento
   const [loading, setLoading] = useState(false);
   const [nameBusiness, setNameBusiness] = useState("Nome da Barbearia");
   const navigate = useNavigate();
@@ -37,7 +38,8 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setLoading(true)
+    console.log(id);
+    setLoading(true);
     const fetchImage = async () => {
       try {
         const dados = await getBarbearia(id);
@@ -48,7 +50,6 @@ export default function Home() {
           setNameBusiness(dados.nome)
         } else {
           console.error('Cores não encontradas para ID:', id);
-          alterPageError();
         }
         const filePath = `${dados.logo_url}.png`;
         const url = await getImageUrl(filePath, 'logos');
@@ -71,6 +72,7 @@ export default function Home() {
         <h1>NovusBarber</h1>
         <p>Experiência de alto nível, corte impecável!</p>
         <img></img>
+        {id ? <p>ID recebido: {id}</p> : <p>Nenhum ID recebido</p>}
       </div>
 
       <img src={imageUrl} className="logo" />

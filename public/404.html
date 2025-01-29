@@ -2,14 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 - Página não encontrada</title>
+    <title>Redirecionando...</title>
   </head>
   <body>
     <script>
-      // Redireciona para o index.html, permitindo que o React Router pegue a URL
-      window.location.replace("/novusbarber/");
+      // Pegamos o caminho da URL atual
+      var path = window.location.pathname + window.location.search;
+      // Redirecionamos para o index.html com um parâmetro de redirecionamento
+      window.location.replace("/novusbarber/?redirect=" + encodeURIComponent(path));
     </script>
   </body>
 </html>
