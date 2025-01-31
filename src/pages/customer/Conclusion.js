@@ -5,12 +5,17 @@ import Button from '../../components/Button';
 import { restoreColors } from '../../suport/Desgin';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckIcon from '@mui/icons-material/Check';
+import CopyIconButton from '../../components/CopyIconButton';
+import { useClipboard } from '../../hooks/useClipboard';  // Importando o hook
 
 export default function Conclusion() {
     const location = useLocation();
     const navigate = useNavigate();
     const { id, corte_inserido } = location.state || {};
     const [copyStatus, setCopyStatus] = useState(null); // "success" ou "error"
+
+    // Usando o useClipboard
+    const { copiado, copiarTexto } = useClipboard();
 
     useEffect(() => {
         restoreColors();
@@ -22,17 +27,18 @@ export default function Conclusion() {
 
     const handleCopy = () => {
         if (corte_inserido?.id) {
-            navigator.clipboard.writeText(corte_inserido.id)
-                .then(() => {
-                    setCopyStatus("success");
-                    setTimeout(() => setCopyStatus(null), 2000); // Reseta o status depois de 2s
-                })
-                .catch(() => {
-                    setCopyStatus("error");
-                    setTimeout(() => setCopyStatus(null), 2000);
-                });
+            // Passando o código a ser copiado para a função do hook
+            copiarTexto(corte_inserido.id);
         }
     };
+
+    useEffect(() => {
+        if (copiado) {
+            setCopyStatus("success");
+        } else {
+            setCopyStatus("error");
+        }
+    }, [copiado]);
 
     return (
         <div className="conclusion-container">
@@ -50,11 +56,7 @@ export default function Conclusion() {
                 </Button>
             </div>
 
-            {copyStatus && (
-                <div className={`status-message ${copyStatus}`}>
-                    {copyStatus === "success" ? "Código copiado com sucesso!" : "Erro ao copiar o código."}
-                </div>
-            )}
+            <CopyIconButton copyStatus={copyStatus} />
 
             <Button classNameType="btn-secondary" onClickButton={handleStart}>
                 INÍCIO

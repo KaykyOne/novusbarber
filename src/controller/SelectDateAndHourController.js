@@ -31,7 +31,7 @@ const getCortes = async (dataCorte, id) => {
     return [];
   }
 
-  console.log('Cortes encontrados:', cortes);
+  // console.log('Cortes encontrados:', cortes);
 
   // Ajustar a extração da hora do campo 'data_corte'
   return cortes.map(c => {
@@ -66,14 +66,13 @@ const getExcecoes = async (dataCorte, id) => {
 
 // 4. Função para calcular horários livres
 const getHorariosLivres = async (dataCorte, dia, id_barbeiro) => {
-  console.log('Data do livre:', dataCorte);
   const horasTrabalho = await getHoras(dia, id_barbeiro);
   const cortes = await getCortes(dataCorte, id_barbeiro);
   const excecoes = await getExcecoes(dataCorte, id_barbeiro);
 
-  console.log("Horas de trabalho:", horasTrabalho);
-  console.log("Horários ocupados (cortes):", cortes);
-  console.log("Exceções:", excecoes);
+  // console.log("Horas de trabalho:", horasTrabalho);
+  // console.log("Horários ocupados (cortes):", cortes);
+  // console.log("Exceções:", excecoes);
 
   // Remover horários que já foram agendados
   let horariosLivres = horasTrabalho.filter(hora => !cortes.includes(hora));
@@ -83,10 +82,21 @@ const getHorariosLivres = async (dataCorte, dia, id_barbeiro) => {
     return !excecoes.some(exc => hora >= exc.inicio && hora <= exc.fim);
   });
 
-  console.log("Horários livres:", horariosLivres);
+  // Ordena os horários do menor para o maior
+  horariosLivres.sort((a, b) => {
+    const [aHours, aMinutes] = a.split(':').map(Number);
+    const [bHours, bMinutes] = b.split(':').map(Number);
+
+    // Converte as horas e minutos para o total de minutos
+    const aTotalMinutes = aHours * 60 + aMinutes;
+    const bTotalMinutes = bHours * 60 + bMinutes;
+
+    return aTotalMinutes - bTotalMinutes;
+  });
 
   return horariosLivres;
 };
+
 
 
 // Exportando funções

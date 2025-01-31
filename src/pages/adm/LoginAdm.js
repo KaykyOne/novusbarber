@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom'; // Hook para acessar o state
 import BackIcon from '@mui/icons-material/ArrowBack';
 import ConfirmIcon from '@mui/icons-material/Check';
 import { restoreColors } from '../../suport/Desgin';
+import { Login } from '../../controller/LoginAdmController';
 
 export default function LoginAdm() {
     const location = useLocation(); // Acessa o state da navegação
@@ -20,11 +21,13 @@ export default function LoginAdm() {
         restoreColors();
     }, [])
 
-    const handleLogin = () => {
-        if (email === 'admin@novusbarber.com' && senha === '123456') {
+    const handleLogin = async () => {
+        const response =  await Login(email, id, senha);
+
+        if (response) {
             setStatusMessage("Login realizado com sucesso!");
             setStatusType("success");
-            setTimeout(() => navigate('/admin'), 1000);
+            setTimeout(() => navigate('/homeadm', { state: { id: response.barbearia_id, response } }), 1000);
         } else {
             setStatusMessage("E-mail ou senha incorretos.");
             setStatusType("error");

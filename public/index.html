@@ -14,4 +14,14 @@
     <noscript>Você precisa ativar o JavaScript para rodar este app.</noscript>
     <div id="root"></div>
   </body>
+  <script>
+    // Se houver um redirect na URL, remova-o para garantir o funcionamento correto.
+    var urlParams = new URLSearchParams(window.location.search);
+    var redirectPath = urlParams.get("redirect");
+  
+    if (redirectPath) {
+      window.history.replaceState(null, "", redirectPath);
+    }
+  </script>
+  
 </html>

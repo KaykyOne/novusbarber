@@ -8,7 +8,7 @@ import Corte from '../../class/Corte';
 import { format } from 'date-fns';
 import BackIcon from '@mui/icons-material/ArrowBack';
 import ConfirmIcon from '@mui/icons-material/Check';
-import brazilianFlag from '../../imgs/bandeiraBrIcone.png';
+import PersonalDataForm from '../../components/PersonalDataForm'; // Importando o novo componente
 
 export default function Confirm() {
     const location = useLocation();
@@ -71,54 +71,20 @@ export default function Confirm() {
         });
     };
 
-    const testTelefone = (valor) => {
-        if (valor === "") {
-            setTelefone(valor);
-            return;
-        }
-        if (/^\d{0,11}$/.test(valor)) {
-            setTelefone(valor);
-        }
-    };
-
-    const testCaracteres = (valor, setter) => {
-        if (typeof valor !== "string") return;
-        if (!/^[A-Za-zÀ-ÖØ-öø-ÿ]*$/.test(valor)) return;
-
-        if (setter === 'nome') setNome(valor);
-        if (setter === 'sobrenome') setSobrenome(valor);
-    };
-
     return (
         <div className="confirm-container">
             <h2 className="title">FINALIZAR</h2>
             
-            
-            <div className={`input-group ${erroCampos.nome ? 'input-group-alert' : ''}`}>
-                <input 
-                    value={nome} 
-                    onChange={(e) => testCaracteres(e.target.value, 'nome')} 
-                    type="text" 
-                    placeholder="NOME..." 
-                />
-            </div>
-            <div className={`input-group ${erroCampos.sobrenome ? 'input-group-alert' : ''}`}>
-                <input 
-                    value={sobrenome} 
-                    onChange={(e) => testCaracteres(e.target.value, 'sobrenome')} 
-                    type="text" 
-                    placeholder="SOBRENOME..." 
-                />
-            </div>
-            <div className={`input-group phone-input ${erroCampos.telefone ? 'input-group-alert' : ''}`}>
-                <img className="flag" src={brazilianFlag} alt="Bandeira do Brasil" />
-                <input
-                    value={telefone}
-                    onChange={(e) => testTelefone(e.target.value)}
-                    type="tel"
-                    placeholder="TELEFONE(00)000000000..."
-                />
-            </div>
+            {/* Usando o PersonalDataForm para renderizar os inputs */}
+            <PersonalDataForm
+                nome={nome}
+                setNome={setNome}
+                sobrenome={sobrenome}
+                setSobrenome={setSobrenome}
+                telefone={telefone}
+                setTelefone={setTelefone}
+                erroCampos={erroCampos}
+            />
 
             <div className="summary-box">
                 <h3>RESUMO:</h3>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import '../../css/Cancel.css';
-import Button from '../../components/Button';
 import { restoreColors } from '../../suport/Desgin';
 import { deleteCorte } from '../../controller/CancelController';
+import CancelForm from '../../components/CancelForm'; // Importando o formulário
+import StatusMessage from '../../components/StatusMessage'; // Importando a mensagem de status
 import BackIcon from '@mui/icons-material/ArrowBack';
 
 export default function Cancel() {
@@ -49,32 +50,20 @@ export default function Cancel() {
         <div className="conclusion-container">
             <h1>Cancelamento</h1>
             <h2>Desmarcar Agendamento</h2>
-            <h3>Utilize o código que vc copiou do agendamento aqui para desmarcar seu horário!</h3>
+            <h3>Utilize o código que você copiou do agendamento aqui para desmarcar seu horário!</h3>
 
-            <div>
-                <input 
-                    value={codigoCancel} 
-                    className='input' 
-                    onChange={(e) => setCodigoCancel(e.target.value)} 
-                    type="text" 
-                    placeholder="Código..." 
-                />
-            </div>
-
-            {/* Exibir mensagem de status */}
-            {statusMessage && (
-                <div className={`status-message ${statusType}`}>
-                    {statusMessage}
-                </div>
-            )}
-
-            <Button classNameType="btn-primary" onClickButton={handleCancelConfirm}>
-                Confirmar Cancelamento
-            </Button>
-            <Button classNameType="btn-secondary" onClickButton={handleBack}>
-                Voltar
-                <BackIcon />
-            </Button>
+            {/* Exibindo o formulário e a mensagem de status */}
+            <CancelForm 
+                codigoCancel={codigoCancel}
+                setCodigoCancel={setCodigoCancel}
+                onCancelConfirm={handleCancelConfirm}
+                onBack={handleBack}
+            />
+            
+            <StatusMessage 
+                message={statusMessage} 
+                type={statusType} 
+            />
         </div>
     );
 }

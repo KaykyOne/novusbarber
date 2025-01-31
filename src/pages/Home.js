@@ -1,82 +1,48 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
-import { getBarbearia, getImageUrl } from '../suport/Desgin';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Loading from '../components/Loading';
-import '../css/Home.css';
-import { useNavigate } from 'react-router-dom';
-import { saveColors } from '../suport/Desgin';
+import { useBarbearia } from '../hooks/useBarbearia'; // Hook personalizado
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SettingsIcon from '@mui/icons-material/Settings';
-import LogoNovusTech from '../imgs/logoNovusTech.png'
+import LinkLocalizacao from '../components/LinkLocalizacao';
+import ParadaDeBarbeiro from '../imgs/paradaDeBarbeiro.png';
+import Footer from '../components/Footer';
+import '../css/Home.css'
 
 export default function Home() {
-  const [imageUrl, setImageUrl] = useState(null);
-  const pathSegments = window.location.pathname.split('/'); // Divide a URL por "/"
-  const id = pathSegments[pathSegments.length - 1] || null; // Último segmento
-  const [loading, setLoading] = useState(false);
-  const [nameBusiness, setNameBusiness] = useState("Nome da Barbearia");
+  const id = window.location.hash.split('/').pop();
   const navigate = useNavigate();
-  const bandeira = "\u{1F1E7}\u{1F1F7} Brasil";
 
+  const { imageUrl, loading, nameBusiness, mapsUrl } = useBarbearia(id); // Usando o hook personalizado
 
   const alterPageCustomer = () => {
-    navigate(`/selectprofessional`, { state: { id: id } });
-  };
-
-  const alterPageError = () => {
-    navigate(`/error`);
+    navigate(`/selectprofessional`, { state: { id } });
   };
 
   const alterPageCancel = () => {
-    navigate(`/cancel`, { state: { id: id } });
-  }
+    navigate(`/cancel`, { state: { id } });
+  };
 
   const alterPageAdm = () => {
-    navigate(`/loginadm`, { state: { id: id } });
-  }
-
-  useEffect(() => {
-    console.log(id);
-    setLoading(true);
-    const fetchImage = async () => {
-      try {
-        const dados = await getBarbearia(id);
-        if (dados) {
-          document.documentElement.style.setProperty('--cor-primaria', dados.cor_principal);
-          document.documentElement.style.setProperty('--cor-secundaria', dados.cor_secundaria);
-          saveColors(dados.cor_principal, dados.cor_secundaria);
-          setNameBusiness(dados.nome)
-        } else {
-          console.error('Cores não encontradas para ID:', id);
-        }
-        const filePath = `${dados.logo_url}.png`;
-        const url = await getImageUrl(filePath, 'logos');
-        if (url) setImageUrl(url);
-        else console.error('Não foi possível carregar a imagem.');
-      } catch (error) {
-        console.error('Erro no fetchImage:', error);
-      }
-    };
-
-    fetchImage();
-    setLoading(false);
-  }, [id]);
-
+    navigate(`/loginadm`, { state: { id } });
+  };
 
   return (
-    <div>
-      <Loading show={loading} /> {/* Mostra o overlay enquanto carrega */}
+    <div className='containerHome'>
+      <Loading show={loading} />
       <div className="header">
-        <h1>NovusBarber</h1>
-        <p>Experiência de alto nível, corte impecável!</p>
-        <img></img>
-        {id ? <p>ID recebido: {id}</p> : <p>Nenhum ID recebido</p>}
+        <div className='sub_header'>
+          <h1>NovusBarber</h1>
+          <p>Experiência de alto nível, corte impecável!</p>
+        </div>
       </div>
 
-      <img src={imageUrl} className="logo" />
-
+      <img src={ParadaDeBarbeiro} className="paradaBarbeariaCss" alt="Imagem de barbearia" />
+      <img src={imageUrl} className="logo" alt="Logo da Barbearia" />
+      <img src={ParadaDeBarbeiro} className="paradaBarbeariaCss" alt="Imagem de barbearia" />
+      
       <h2 className="title">{nameBusiness}</h2>
       <p className="subtitle">Agende seu horário de forma simplificada!</p>
 
@@ -93,11 +59,8 @@ export default function Home() {
           Administração
           <SettingsIcon />
         </Button>
-      </div>
-
-      <div className="footer">
-        <h4>Feito por NovusTech</h4>
-        <img className='logoNovus' src={LogoNovusTech}/>
+        <LinkLocalizacao mapsUrl={mapsUrl} className='linkLocalizacao' target="_blank" rel="noopener noreferrer"/>
+        <Footer />
       </div>
     </div>
   );

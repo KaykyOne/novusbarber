@@ -6,12 +6,13 @@
   --cor-fundo: #f4f4f4; /* Cor de fundo */
   --cor-texto: #333; /* Cor do texto */
   height: 100%; /* Garante que o :root ocupe toda a altura da página */
-  width: 96%;  /* Garante que o :root ocupe toda a largura */
+  width: 100%;  /* Garante que o :root ocupe toda a largura */
 }
+
 
 /* Estilo para o body */
 body {
-  width: 100%;
+  overflow: hidden;
   font-family: Arial, sans-serif;
   text-align: center;
   background-color: var(--cor-fundo);
