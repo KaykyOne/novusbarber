@@ -8,7 +8,7 @@ const Login = async (email, id, password) => {
         .eq('barbearia_id', id)
         .eq('email', email)
         .eq('senha', password)
-        .single();  
+        .single();
     if (error || resposta == null) {
         console.error('Erro ao fazer login:', error.message);
         return null;
@@ -17,5 +17,17 @@ const Login = async (email, id, password) => {
     return resposta;
 };
 
+const SaveDados = (email, senha) => {
+    localStorage.setItem('email', email);
+    localStorage.setItem('senha', senha);
+};
+
+const restoreDados = () => {
+    const email = localStorage.getItem('email');
+    const senha = localStorage.getItem('senha');
+
+    return { email, senha }
+};
+
 // Exportando a função
-export { Login };
+export { Login, SaveDados, restoreDados };

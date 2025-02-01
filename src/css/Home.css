@@ -75,23 +75,4 @@
     height: 8%;
     border-radius: 30%;
 }
-
-.linkLocalizacao {
-    display: flex;
-    width: fit-content; /* Ocupa apenas o espaço necessário */
-    align-items: center;
-    gap: 8px;
-    background-color: black;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s;
-  }
-  
-  .linkLocalizacao:hover {
-    background-color: gray;
-  }
   

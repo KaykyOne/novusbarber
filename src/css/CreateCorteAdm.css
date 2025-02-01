@@ -1,0 +1,17 @@
+.data-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Alinha o texto e o input na mesma altura */
+    gap: 10px;
+    /* Espaço entre o texto e o DatePicker */
+}
+
+.data-container p {
+    width: 50px; /* Largura fixa para manter alinhamento */
+    font-weight: bold;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+}

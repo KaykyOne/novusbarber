@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "NovusBarber",
+  "name": "App para agendar e gerenciar cortes de barbearia!",
   "icons": [
     {
       "src": "favicon.ico",

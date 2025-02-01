@@ -47,7 +47,7 @@ export default function Cancel() {
     };
 
     return (
-        <div className="conclusion-container">
+        <div className="container">
             <h1>Cancelamento</h1>
             <h2>Desmarcar Agendamento</h2>
             <h3>Utilize o código que você copiou do agendamento aqui para desmarcar seu horário!</h3>

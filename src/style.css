@@ -7,8 +7,15 @@
   --cor-texto: #333; /* Cor do texto */
   height: 100%; /* Garante que o :root ocupe toda a altura da página */
   width: 100%;  /* Garante que o :root ocupe toda a largura */
+  color-scheme: light !important;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+}
 
 /* Estilo para o body */
 body {
@@ -36,6 +43,7 @@ body {
 }
 
 /* Estilo para o DatePicker (input de data) */
+.custom-timepicker-input,
 .custom-datepicker-input {
   width: 80%; /* Ajuste a largura conforme necessário */
   max-width: 400px; /* Limita a largura máxima */
@@ -48,6 +56,7 @@ body {
   margin-bottom: 20px;
 }
 
+.custom-timepicker-input:focus,
 .custom-datepicker-input:focus {
   border-color: var(--cor-primaria);
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
@@ -136,6 +145,16 @@ button.btn-secondary {
   gap: 8px; /* Espaçamento entre o texto e o ícone */
 }
 
+.btn-config {
+  background-color: black;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
 /* Define o tamanho do ícone dentro de cada tipo de botão */
 /* Torna o botão um contêiner flexível */
 /* Ajustar a flexbox para botões */
@@ -181,6 +200,7 @@ button.btn-tertiary {
 /* Estilo para cabeçalhos */
 h1, h2 {
   color: var(--cor-primaria);
+  margin: 10px;
 }
 
 h3, h4 {
@@ -200,4 +220,23 @@ h3, h4 {
   color: red;
   font-size: 16px;
   margin-top: 10px;
+}
+
+.linkLocalizacao {
+  display: flex;
+  width: fit-content; /* Ocupa apenas o espaço necessário */
+  align-items: center;
+  gap: 8px;
+  background-color: black;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+}
+
+.linkLocalizacao:hover {
+  background-color: gray;
 }

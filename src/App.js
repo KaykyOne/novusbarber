@@ -10,7 +10,7 @@ import Conclusion from './pages/customer/Conclusion';
 import Cancel from './pages/customer/Cancel';
 import LoginAdm from './pages/adm/LoginAdm';
 import HomeAdm from './pages/adm/HomeAdm';
-
+import CreateCorteAdm from './pages/adm/CreateCorteAdm';
 
 function App() {
   return (
@@ -28,6 +28,8 @@ function App() {
           <Route path="/cancel" element={<Cancel />} />
           <Route path="/loginadm" element={<LoginAdm />} />
           <Route path="/homeadm" element={<HomeAdm />} />
+          <Route path="/createcorteadm" element={<CreateCorteAdm />} />
+
         </Routes>
       </Router>
     </div>
