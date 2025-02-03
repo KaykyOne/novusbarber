@@ -19,6 +19,7 @@
 
 /* Estilo para o body */
 body {
+  background-color: white;
   overflow: hidden;
   font-family: Arial, sans-serif;
   text-align: center;
@@ -145,6 +146,27 @@ button.btn-secondary {
   gap: 8px; /* Espaçamento entre o texto e o ícone */
 }
 
+/* Estilo do botão quartary */
+button.btn-quartary {
+  background-color: transparent;
+  border: 2px solid var(--cor-primaria);
+  color: var(--cor-primaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Espaçamento entre o texto e o ícone */
+}
+
+button.btn-quartary:hover {
+  color: white;
+  background-color: var(--cor-primaria); /* Muda para cor primária ao passar o mouse */
+}
+
+button.btn-quartary:active {
+  background-color: var(--cor-primaria); /* Cor ao clicar */
+  transform: scale(0.95); /* Reduz o tamanho ao clicar */
+}
+
 .btn-config {
   background-color: black;
   color: white;
@@ -160,6 +182,7 @@ button.btn-secondary {
 /* Ajustar a flexbox para botões */
 button.btn-primary, 
 button.btn-secondary, 
+button.btn-quartary,
 button.btn-tertiary {
   display: flex;
   align-items: center; /* Garante que o texto e o ícone fiquem centralizados verticalmente */
@@ -169,6 +192,7 @@ button.btn-tertiary {
 
 /* Estilo para o ícone */
 .btn-primary svg,
+.btn-quartary svg,
 .btn-secondary svg,
 .btn-tertiary svg {
   font-size: 1.2rem;  /* Ajuste o tamanho do ícone */
@@ -184,6 +208,7 @@ button.btn-primary:hover {
   background-color: var(--cor-secundaria);
   color: white;
 }
+
 
 button.btn-tertiary {
   background-color: var(--cor-secundaria);
@@ -239,4 +264,49 @@ h3, h4 {
 
 .linkLocalizacao:hover {
   background-color: gray;
+}
+
+.input-group {
+  width: 100%;
+  max-width: 350px; /* Tamanho mais adequado para os inputs */
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input-group select, .input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 5px;
+  box-sizing: border-box; /* Garante que o padding não quebre o layout */
+}
+
+.input-group-alert select, .input-group-alert input {
+  border-color: red; /* Borda vermelha para erro */
+}
+
+.input-group-alert select::placeholder, .input-group-alert input::placeholder {
+  color: red; /* Cor vermelha para erro no placeholder */
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+  width: 100%;
+  max-width: 350px;
+}
+
+.flag {
+  max-height: 20%;
+  max-width: 20%;
+  margin: 5px;
+  margin-top: 10px;
 }

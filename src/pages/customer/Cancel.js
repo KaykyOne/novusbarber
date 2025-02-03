@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import '../../css/Cancel.css';
 import { restoreColors } from '../../suport/Desgin';
-import { deleteCorte } from '../../controller/CancelController';
+import { deleteCorte } from '../../controller/ControllerCorte';
 import CancelForm from '../../components/CancelForm'; // Importando o formulário
 import StatusMessage from '../../components/StatusMessage'; // Importando a mensagem de status
-import BackIcon from '@mui/icons-material/ArrowBack';
 
 export default function Cancel() {
     const location = useLocation();

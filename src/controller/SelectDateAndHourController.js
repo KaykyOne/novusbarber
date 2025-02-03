@@ -18,7 +18,7 @@ const getHoras = async (dia, id) => {
 
 const getCortes = async (dataCorte, id) => {
   const formattedDate = format(dataCorte, 'yyyy-MM-dd');
-
+  console.log(formattedDate);
   const { data: cortes, error } = await supabase
     .from('cortes')
     .select('data_corte') // Busca a data completa

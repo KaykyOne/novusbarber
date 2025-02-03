@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import '../../css/Confirm.css';
 import Button from '../../components/Button';
-import { insertCorte } from '../../controller/ConfirmController';
+import { insertCorte } from '../../controller/ControllerCorte';
 import { restoreColors } from '../../suport/Desgin';
 import Corte from '../../class/Corte';
 import { format } from 'date-fns';
@@ -87,7 +87,7 @@ export default function Confirm() {
             />
 
             <div className="summary-box">
-                <h3>RESUMO:</h3>
+                <p><strong>RESUMO:</strong></p>
                 <p><strong>PROFISSIONAL:</strong> {profissional || 'N/A'}</p>
                 <p><strong>DATA E HORA:</strong> {dataHoraFormatada || 'N/A'}</p>
                 <p><strong>SERVIÇO:</strong> {servico || 'N/A'}</p>

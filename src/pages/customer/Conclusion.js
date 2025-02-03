@@ -56,8 +56,6 @@ export default function Conclusion() {
                 </Button>
             </div>
 
-            <CopyIconButton copyStatus={copyStatus} />
-
             <Button classNameType="btn-secondary" onClickButton={handleStart}>
                 INÍCIO
             </Button>

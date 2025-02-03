@@ -1,17 +1,44 @@
 .data-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    /* Alinha o texto e o input na mesma altura */
-    gap: 10px;
-    /* Espaço entre o texto e o DatePicker */
+  display: flex;
+  align-items: center;  /* Alinha na vertical */
+  justify-content: center;  /* Alinha horizontalmente ao centro */
+  gap: 10px;
 }
 
-.data-container p {
-    width: 50px; /* Largura fixa para manter alinhamento */
-    font-weight: bold;
-    text-align: right;
-    justify-content: center;
-    align-items: center;
+.data-container h3 {
+  font-weight: bold;
+  text-align: center;  /* Centraliza o texto dentro do h3 */
+}
+
+
+
+
+.horarios-ocupados {
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.scrollable-list {
+  max-height: 100px;
+  overflow-y: auto; /* Permite rolar a lista */
+  padding-right: 10px;
+}
+
+.horarios-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens "quebrem" para a linha seguinte quando necessário */
+  gap: 10px; /* Espaçamento entre os itens */
+  align-items: center;
+  justify-content: center;
+}
+
+.horario {
+  padding: 8px 15px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  min-width: 100px; /* Largura mínima para cada item */
+  text-align: center;
+  margin: 2px;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import { restoreColors } from '../../suport/Desgin';
-import { getServices } from '../../controller/SelectServiceController';
+import { getServices } from '../../controller/ControllerService';
 import Loading from '../../components/Loading';
 import Button from '../../components/Button'; // Corrigido
 import '../../css/SelectServices.css';
@@ -10,7 +10,7 @@ import BackIcon from '@mui/icons-material/ArrowBack';
 export default function SelectService() {
     const location = useLocation();
     const navigate = useNavigate();
-    const {id, id_barbeiro, data_hora, profissional} = location.state || {};
+    const { id, id_barbeiro, data_hora, profissional } = location.state || {};
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -39,11 +39,11 @@ export default function SelectService() {
     };
 
     const handleBack = () => {
-        navigate(`/selectdateandhour`, { state: { id: id, id_barbeiro: id_barbeiro} });
+        navigate(`/selectdateandhour`, { state: { id: id, id_barbeiro: id_barbeiro } });
     };
 
     const renderServiceItem = (item, index) => (
-        <div key={index} className="professional-button">
+        <div key={index} className="service-button">
             <div>Tipo: {item.nome}</div>
             <div>Valor: {item.preco ? `R$ ${item.preco}` : 'Indisponível'}</div>
             <button className="choose-button" onClick={() => handleButtonClick(item)}>
@@ -51,7 +51,7 @@ export default function SelectService() {
             </button>
         </div>
     );
-    
+
     return (
         <div className="container">
             <h1>Escolha o Serviço</h1>
@@ -64,14 +64,20 @@ export default function SelectService() {
                     </p>
                 </div>
             ) : (
-                <div className="professionals-list">
-                    {services.map(renderServiceItem)} {/* Corrigido */}
-                </div>
+                <>
+                    {!loading && services.length > 3 && ( // Mostra apenas se houver muitos serviços
+                        <p className="scroll-indicator">↕ Role para ver mais serviços</p>
+                    )}
+                    <div className="services-list">
+                        {services.map(renderServiceItem)}
+                    </div>
+                </>
             )}
             <Button classNameType="btn-secondary" onClickButton={handleBack}>
                 Voltar
                 <BackIcon />
             </Button>
         </div>
+
     );
 }

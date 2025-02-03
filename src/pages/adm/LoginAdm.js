@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom'; // Hook para acessar o state
 import BackIcon from '@mui/icons-material/ArrowBack';
 import ConfirmIcon from '@mui/icons-material/Check';
 import { restoreColors } from '../../suport/Desgin';
-import { Login, SaveDados, restoreDados } from '../../controller/LoginAdmController';
+import { Login, SaveDados, restoreDados } from '../../controller/ControllerProfessional';
 import Checkbox from '../../components/Checkbox';
 
 export default function LoginAdm() {

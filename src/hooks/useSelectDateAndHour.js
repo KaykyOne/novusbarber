@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getHorariosLivres } from '../controller/SelectDateAndHourController';
+import { getHorariosLivres } from '../controller/ControllerProfessional';
 import { restoreColors } from '../suport/Desgin';
 import { format, getDay } from 'date-fns';
 

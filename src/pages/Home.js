@@ -5,6 +5,7 @@ import Loading from '../components/Loading';
 import { useBarbearia } from '../hooks/useBarbearia'; // Hook personalizado
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CancelIcon from '@mui/icons-material/Cancel';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LinkLocalizacao from '../components/LinkLocalizacao';
 import ParadaDeBarbeiro from '../imgs/paradaDeBarbeiro.png';
@@ -29,6 +30,10 @@ export default function Home() {
     navigate(`/loginadm`, { state: { id } });
   };
 
+  const alterPageSeeService = () => {
+    navigate(`/seeservice`, { state: { id } });
+  };
+
   return (
     <div className='containerHome'>
       <Loading show={loading} />
@@ -38,11 +43,11 @@ export default function Home() {
           <p>Experiência de alto nível, corte impecável!</p>
         </div>
       </div>
-
-      <img src={ParadaDeBarbeiro} className="paradaBarbeariaCss" alt="Imagem de barbearia" />
+{/* 
+      <img src={ParadaDeBarbeiro} className="paradaBarbeariaCss" alt="Imagem de barbearia" /> */}
       <img src={imageUrl} className="logo" alt="Logo da Barbearia" />
-      <img src={ParadaDeBarbeiro} className="paradaBarbeariaCss" alt="Imagem de barbearia" />
-      
+      {/* <img src={ParadaDeBarbeiro} className="paradaBarbeariaCss" alt="Imagem de barbearia" />
+       */}
       <h2 className="title">{nameBusiness}</h2>
       <p className="subtitle">Agende seu horário de forma simplificada!</p>
 
@@ -55,7 +60,11 @@ export default function Home() {
           Cancelar horário
           <CancelIcon />
         </Button>
-        <Button classNameType={"btn-tertiary"} onClickButton={alterPageAdm}>
+        <Button classNameType={"btn-tertiary"} onClickButton={alterPageSeeService}>
+          Ver horário
+          <VisibilityIcon />
+        </Button>
+        <Button classNameType={"btn-quartary"} onClickButton={alterPageAdm}>
           Administração
           <SettingsIcon />
         </Button>

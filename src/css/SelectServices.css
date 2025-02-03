@@ -1,6 +1,5 @@
-
-/* Estilo para os botões dos profissionais */
-.professional-button {
+/* Estilo para os botões dos serviços */
+.service-button {
     background-color: var(--cor-primaria);
     color: #FFF;
     padding: 10px 20px;
@@ -11,7 +10,7 @@
     transition: background-color 0.3s ease;
 }
 
-.professional-button:hover {
+.service-button:hover {
     background-color: var(--cor-secundaria);
 }
 
@@ -32,14 +31,48 @@
     color: #555;
 }
 
-/* Lista de profissionais */
-.professionals-list {
+/* Lista de serviços */
+/* Lista de serviços com rolagem */
+.services-list {
     display: flex;
     flex-direction: column;
     width: 90%;
+    max-height: 600px; /* Ajuste conforme necessário */
+    overflow-y: auto;
+    scrollbar-width: thin; /* Para navegadores que suportam */
+    scrollbar-color: var(--cor-primaria) transparent;
 }
 
-.professional-button {
+.scroll-indicator {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+    animation: fadeInOut 1.5s infinite alternate;
+}
+
+@keyframes fadeInOut {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+
+/* Estilização para a barra de rolagem no Chrome */
+.services-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.services-list::-webkit-scrollbar-thumb {
+    background-color: var(--cor-primaria);
+    border-radius: 4px;
+}
+
+.services-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.service-button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,19 +91,19 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.professional-button:hover {
+.service-button:hover {
     transform: scale(1.05);
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-.professional-button div {
+.service-button div {
     margin: 5px 0;
 }
 
 .choose-button {
     background: white;
     color: var(--cor-primaria);
-    border: var(--cor-secundaria);;
+    border: var(--cor-secundaria);
     padding: 8px 12px;
     margin-top: 10px;
     border-radius: 8px;
