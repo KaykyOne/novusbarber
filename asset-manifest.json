@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.1530f452.css",
-    "main.js": "/static/js/main.25ba83da.js",
+    "main.css": "/static/css/main.9ab8fa04.css",
+    "main.js": "/static/js/main.8f050a06.js",
     "static/js/952.0ae6a47a.chunk.js": "/static/js/952.0ae6a47a.chunk.js",
     "static/media/logoNovusTech.png": "/static/media/logoNovusTech.b93cd39e6f6917377c74.png",
     "static/media/paradaDeBarbeiro.png": "/static/media/paradaDeBarbeiro.d50bfb9b48d86ccdff54.png",
     "index.html": "/index.html",
-    "main.1530f452.css.map": "/static/css/main.1530f452.css.map",
-    "main.25ba83da.js.map": "/static/js/main.25ba83da.js.map",
+    "main.9ab8fa04.css.map": "/static/css/main.9ab8fa04.css.map",
+    "main.8f050a06.js.map": "/static/js/main.8f050a06.js.map",
     "952.0ae6a47a.chunk.js.map": "/static/js/952.0ae6a47a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1530f452.css",
-    "static/js/main.25ba83da.js"
+    "static/css/main.9ab8fa04.css",
+    "static/js/main.8f050a06.js"
   ]
 }
