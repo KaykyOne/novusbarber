@@ -5,6 +5,7 @@ import { getServices } from '../controller/ControllerService';
 import { useNavigate } from 'react-router-dom';
 import Corte from '../class/Corte';
 import { format } from 'date-fns';
+import ToastNotification, { showToast } from "../components/ToastNotification"; // Importando o componente e a função
 
 export function useCorteAdm(response, id) {
   const navigate = useNavigate();
@@ -63,15 +64,6 @@ export function useCorteAdm(response, id) {
     setSelectedDate(date);
   };
 
-  const handleCreateCorte = async () => {
-    try {
-      // A lógica de criação do corte pode ser adicionada aqui.
-    } catch (erro) {
-      console.error(erro);
-    }
-  };
-
-
   const handleButtonClick = () => {
     setLoading(true);
     try {
@@ -80,7 +72,8 @@ export function useCorteAdm(response, id) {
       // Adicionando uma verificação para garantir que comboSelect não esteja vazio ou nulo
       if (!comboSelect) {
         console.log("Seleção não válida para o comboSelect!");
-        return;
+        showToast('Corte Selecionado Inválido.', 'error');
+        return; 
       }
 
       let valid = true;
@@ -89,21 +82,25 @@ export function useCorteAdm(response, id) {
       if (telefone === "" || telefone.trim().length < 10) {
         erroNovo.telefone = true;
         valid = false;
+        showToast('Campos Inválidos.', 'error');
       }
 
       if (nome === "") {
         erroNovo.nome = true;
         valid = false;
+        showToast('Campos Inválidos.', 'error');
       }
 
       if (sobrenome === "") {
         erroNovo.sobrenome = true;
         valid = false;
+        showToast('Campos Inválidos.', 'error');
       }
 
       setErroCampos(erroNovo);
 
       if (!valid) return;
+      if (!selectedDate || !selectedTime) {showToast('Horário ou Data não selecionado ou inválido!', 'error'); return;}
 
       const dataHora = `${format(selectedDate, 'yyyy-MM-dd')} ${format(selectedTime, 'HH:mm:ss')}`;
       const novoCorte = new Corte(null, id, response.id, nome, sobrenome, telefone, comboSelect, dataHora);
@@ -113,7 +110,7 @@ export function useCorteAdm(response, id) {
             console.log('Corte inserido com sucesso:', corteInserido);
             navigate(`/conclusion`, { state: { id, corte_inserido: corteInserido } });
           } else {
-            console.log('Falha ao inserir corte.');
+            showToast('Falha ao inserir corte.', 'error');
           }
         })
         .catch((error) => {
@@ -155,6 +152,6 @@ export function useCorteAdm(response, id) {
     setSelectedDate,
     setSelectedTime,
     alterData,
-    handleCreateCorte,
+    ToastNotification,
   };
 }

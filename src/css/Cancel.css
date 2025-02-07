@@ -1,12 +1,4 @@
-.input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    margin-top: 5px;
-    box-sizing: border-box; /* Garante que o padding não quebre o layout */
-}
+
 
 .status-message {
     margin-top: 10px;

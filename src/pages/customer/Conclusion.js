@@ -41,7 +41,7 @@ export default function Conclusion() {
     }, [copiado]);
 
     return (
-        <div className="conclusion-container">
+        <div className="container">
             <h1>Conclusão</h1>
             <h2>Código do agendamento</h2>
             <h3>Salve esse código para utilizar caso for desmarcar</h3>

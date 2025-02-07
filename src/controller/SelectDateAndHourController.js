@@ -44,8 +44,6 @@ const getCortes = async (dataCorte, id) => {
   }).filter(hora => hora !== null); // Remove valores null
 };
 
-
-
 // 3. Buscar exceções (folgas, ajustes)
 const getExcecoes = async (dataCorte, id) => {
   const formattedDate = format(dataCorte, 'yyyy-MM-dd');
@@ -97,7 +95,75 @@ const getHorariosLivres = async (dataCorte, dia, id_barbeiro) => {
   return horariosLivres;
 };
 
+const getHorarios = async(id, dia) => {
+  const {data: horarios, error} = await supabase
+    .from('hora_dias')
+    .select('*')
+    .eq('barbeiro_id', id)
+    .eq('dia_semana', dia);
+  
+  if(error){
+    console.error('Erro ao buscar horários', error.message);
+    return;
+  }
+
+  console.log(horarios); // Exibe os horários agrupados por dia
+  return horarios;
+}
+
+const insertHorario = async (id, dia, hora) => {
+  // Tenta inserir no banco de dados
+  console.log(dia);
+  const { data, error } = await supabase
+    .from('hora_dias')
+    .insert([
+      {
+        hora: hora,
+        barbeiro_id: id,
+        dia_semana: dia,
+      }
+    ])
+    .select();
+
+  if (error) {
+    console.error('Erro ao inserir horário:', error.message);
+    return null; // Retorna null em caso de erro
+  }
+
+  // Retorna os dados inseridos
+  return data;
+};
+
+
+const deleteHorario = async (id) => {
+  // Tenta excluir o corte
+  const { data, error, count } = await supabase
+      .from('hora_dias')
+      .delete()
+      .eq('id', id)
+      .select(); // Adicionando select para forçar o retorno dos dados excluídos
+
+  // Verificar se houve erro
+  if (error) {
+      console.error('Erro ao excluir corte:', error.message);
+      return null; // Retorna null em caso de erro
+  }
+
+  console.log('Dados excluídos:', data); // Log para ver se os dados foram excluídos
+
+  // Verificar se algum corte foi excluído
+  if (data && data.length > 0) {
+      console.log('Corte excluído com sucesso');
+  } else {
+      console.log('Nenhum corte encontrado para excluir');
+  }
+
+  // Retorna uma confirmação de que o corte foi excluído
+  return data && data.length > 0;
+};
+
+
 
 
 // Exportando funções
-export { getHoras, getCortes, getExcecoes, getHorariosLivres };
+export { getHoras, getCortes, getExcecoes, getHorariosLivres, getHorarios, deleteHorario, insertHorario };

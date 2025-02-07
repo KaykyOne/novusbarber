@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from '../../components/Loading';
 import BackIcon from '@mui/icons-material/ArrowBack';
 import AddCorteIcon from '@mui/icons-material/AddCircle';
+import CutIcon from "@mui/icons-material/ContentCut";
 import ListIcon from '@mui/icons-material/List';
 import ConfigIcon from '@mui/icons-material/Settings';
 import EditHourIcon from '@mui/icons-material/EditCalendar';
@@ -23,15 +24,15 @@ export default function HomeAdm() {
   }, [id, response])
 
   const handleClickAlter = (page) => {
-    navigate(`/${page}`, { state: { id, response }});
+    navigate(`/${page}`, { state: { id, response } });
   }
 
   const handleBack = () => {
     if (id) {
       navigate(`/${id}`);
-  } else {
+    } else {
       console.error("ID não definido!");
-  }
+    }
   };
 
   return (
@@ -44,12 +45,17 @@ export default function HomeAdm() {
         <AddCorteIcon />
       </Button>
 
-      <Button classNameType="btn-tertiary" onClickButton={() => handleClickAlter('edithour')}>
+      <Button classNameType="btn-tertiary" onClickButton={() => handleClickAlter('managedays')}>
         Editar Horários
         <EditHourIcon />
       </Button>
 
-      <Button classNameType="btn-tertiary" onClickButton={() => handleClickAlter('listhour')}>
+      <Button classNameType="btn-tertiary" onClickButton={() => handleClickAlter('service')}>
+        Serviços
+        <CutIcon />
+      </Button>
+
+      <Button classNameType="btn-tertiary" onClickButton={() => handleClickAlter('list')}>
         Listar Horários
         <ListIcon />
       </Button>

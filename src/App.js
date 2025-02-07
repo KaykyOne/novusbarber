@@ -12,6 +12,9 @@ import LoginAdm from './pages/adm/LoginAdm';
 import HomeAdm from './pages/adm/HomeAdm';
 import CreateCorteAdm from './pages/adm/CreateCorteAdm';
 import SeeService from './pages/customer/SeeService';
+import List from './pages/adm/List';
+import Service from './pages/adm/Services';
+import ManageDays from './pages/adm/ManageDays';
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
           <Route path="/homeadm" element={<HomeAdm />} />
           <Route path="/createcorteadm" element={<CreateCorteAdm />} />
           <Route path="/seeservice" element={<SeeService />} />
+          <Route path="/list" element={<List />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/managedays" element={<ManageDays />} />
         </Routes>
       </Router>
     </div>

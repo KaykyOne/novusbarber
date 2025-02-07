@@ -1,12 +1,21 @@
-
 /* Estilos globais */
 :root {
-  --cor-primaria: #3498db; /* Cor primária */
-  --cor-secundaria: #2ecc71; /* Cor secundária */
-  --cor-fundo: #f4f4f4; /* Cor de fundo */
-  --cor-texto: #333; /* Cor do texto */
-  height: 100%; /* Garante que o :root ocupe toda a altura da página */
-  width: 100%;  /* Garante que o :root ocupe toda a largura */
+  --cor-primaria: #3498db;
+  /* Cor primária */
+  --cor-secundaria: #2ecc71;
+  /* Cor delete */
+  --cor-delete: #A10000;
+  /* Cor zap */
+  --cor-zap: #009C2C;
+  /* Cor secundária */
+  --cor-fundo: white;
+  /* Cor de fundo */
+  --cor-texto: #333;
+  /* Cor do texto */
+  height: 100%;
+  /* Garante que o :root ocupe toda a altura da página */
+  width: 100%;
+  /* Garante que o :root ocupe toda a largura */
   color-scheme: light !important;
 }
 
@@ -17,10 +26,20 @@
   }
 }
 
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  /* Garante que o padding não quebre o layout */
+}
+
 /* Estilo para o body */
 body {
   background-color: white;
-  overflow: hidden;
   font-family: Arial, sans-serif;
   text-align: center;
   background-color: var(--cor-fundo);
@@ -28,26 +47,41 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  overflow-x: hidden; /* Impede o overflow horizontal */
 }
 
 /* Container geral que centraliza os elementos */
 .container {
   display: flex;
-  flex-direction: column; /* Coloca os elementos em uma coluna */
+  background-color: var(--cor-fundo);
+  /* Se quiser usar a variável */
+  flex-direction: column;
   align-items: center;
-  justify-content: flex; /* Alinha no topo, caso haja outros conteúdos */
+  justify-content: flex-start;
+  /* Corrigi também "justify-content: flex;" que estava errado */
   width: 100%;
   padding: 20px;
-  background-color: transparent;
-  box-sizing: border-box; /* Garante que o padding não altere as dimensões */
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.container-horizontal {
+  display: flex;
+  flex-direction: row; /* Mantém os itens lado a lado */
+  align-items: center; /* Centraliza verticalmente os itens na linha */
+  justify-content: center; /* Mantém os itens alinhados à esquerda */
+  background-color: var(--cor-fundo);
+  width: 90%;
+  box-sizing: border-box;
+  border-radius: 20px;
 }
 
 /* Estilo para o DatePicker (input de data) */
 .custom-timepicker-input,
 .custom-datepicker-input {
-  width: 80%; /* Ajuste a largura conforme necessário */
-  max-width: 400px; /* Limita a largura máxima */
+  width: 80%;
+  /* Ajuste a largura conforme necessário */
+  max-width: 400px;
+  /* Limita a largura máxima */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -86,7 +120,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center; /* Garante que os botões fiquem centralizados */
+  justify-content: center;
+  /* Garante que os botões fiquem centralizados */
   width: 100%;
   padding: 20px 0;
 }
@@ -101,8 +136,10 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-  flex: 1 1 100px; /* Flexível, com largura mínima de 100px */
-  max-width: 150px; /* Limita a largura máxima dos botões */
+  flex: 1 1 100px;
+  /* Flexível, com largura mínima de 100px */
+  max-width: 150px;
+  /* Limita a largura máxima dos botões */
 }
 
 .hour-button:hover {
@@ -133,7 +170,8 @@ button.btn-primary {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Espaçamento entre o texto e o ícone */
+  gap: 8px;
+  /* Espaçamento entre o texto e o ícone */
 }
 
 button.btn-secondary {
@@ -143,7 +181,8 @@ button.btn-secondary {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Espaçamento entre o texto e o ícone */
+  gap: 8px;
+  /* Espaçamento entre o texto e o ícone */
 }
 
 /* Estilo do botão quartary */
@@ -154,17 +193,53 @@ button.btn-quartary {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Espaçamento entre o texto e o ícone */
+  gap: 8px;
+  /* Espaçamento entre o texto e o ícone */
+}
+
+button.btn-delete {
+  background-color: var(--cor-delete);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  /* Ajustei o padding para ser mais consistente com os outros botões */
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  /* Garante que o conteúdo fique centralizado verticalmente */
+  justify-content: space-between;
+  /* Coloca o texto e o ícone nas extremidades */
+  gap: 8px;
+  /* Adiciona um espaço entre o texto e o ícone */
+}
+
+button.btn-zap {
+  background-color: var(--cor-zap);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  /* Ajustei o padding para ser mais consistente com os outros botões */
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  /* Garante que o conteúdo fique centralizado verticalmente */
+  justify-content: space-between;
+  /* Coloca o texto e o ícone nas extremidades */
+  gap: 8px;
+  /* Adiciona um espaço entre o texto e o ícone */
 }
 
 button.btn-quartary:hover {
   color: white;
-  background-color: var(--cor-primaria); /* Muda para cor primária ao passar o mouse */
+  background-color: var(--cor-primaria);
+  /* Muda para cor primária ao passar o mouse */
 }
 
 button.btn-quartary:active {
-  background-color: var(--cor-primaria); /* Cor ao clicar */
-  transform: scale(0.95); /* Reduz o tamanho ao clicar */
+  background-color: var(--cor-primaria);
+  /* Cor ao clicar */
+  transform: scale(0.95);
+  /* Reduz o tamanho ao clicar */
 }
 
 .btn-config {
@@ -180,14 +255,17 @@ button.btn-quartary:active {
 /* Define o tamanho do ícone dentro de cada tipo de botão */
 /* Torna o botão um contêiner flexível */
 /* Ajustar a flexbox para botões */
-button.btn-primary, 
-button.btn-secondary, 
+button.btn-primary,
+button.btn-secondary,
 button.btn-quartary,
 button.btn-tertiary {
   display: flex;
-  align-items: center; /* Garante que o texto e o ícone fiquem centralizados verticalmente */
-  justify-content: space-between; /* Coloca o ícone no fim do botão, ou 'flex-end' */
-  gap: 8px; /* Adiciona espaçamento entre o texto e o ícone */
+  align-items: center;
+  /* Garante que o texto e o ícone fiquem centralizados verticalmente */
+  justify-content: space-between;
+  /* Coloca o ícone no fim do botão, ou 'flex-end' */
+  gap: 8px;
+  /* Adiciona espaçamento entre o texto e o ícone */
 }
 
 /* Estilo para o ícone */
@@ -195,8 +273,10 @@ button.btn-tertiary {
 .btn-quartary svg,
 .btn-secondary svg,
 .btn-tertiary svg {
-  font-size: 1.2rem;  /* Ajuste o tamanho do ícone */
-  margin-left: 8px; /* Espaçamento entre o texto e o ícone */
+  font-size: 1.2rem;
+  /* Ajuste o tamanho do ícone */
+  margin-left: 8px;
+  /* Espaçamento entre o texto e o ícone */
 }
 
 button.btn-secondary:hover {
@@ -209,26 +289,31 @@ button.btn-primary:hover {
   color: white;
 }
 
-
 button.btn-tertiary {
   background-color: var(--cor-secundaria);
   color: white;
   border: none;
-  padding: 10px 20px; /* Ajustei o padding para ser mais consistente com os outros botões */
+  padding: 10px 20px;
+  /* Ajustei o padding para ser mais consistente com os outros botões */
   font-size: 16px;
   display: flex;
-  align-items: center; /* Garante que o conteúdo fique centralizado verticalmente */
-  justify-content: space-between; /* Coloca o texto e o ícone nas extremidades */
-  gap: 8px; /* Adiciona um espaço entre o texto e o ícone */
+  align-items: center;
+  /* Garante que o conteúdo fique centralizado verticalmente */
+  justify-content: space-between;
+  /* Coloca o texto e o ícone nas extremidades */
+  gap: 8px;
+  /* Adiciona um espaço entre o texto e o ícone */
 }
 
 /* Estilo para cabeçalhos */
-h1, h2 {
+h1,
+h2 {
   color: var(--cor-primaria);
   margin: 10px;
 }
 
-h3, h4 {
+h3,
+h4 {
   color: var(--cor-secundaria);
 }
 
@@ -249,7 +334,8 @@ h3, h4 {
 
 .linkLocalizacao {
   display: flex;
-  width: fit-content; /* Ocupa apenas o espaço necessário */
+  width: fit-content;
+  /* Ocupa apenas o espaço necessário */
   align-items: center;
   gap: 8px;
   background-color: black;
@@ -268,7 +354,8 @@ h3, h4 {
 
 .input-group {
   width: 100%;
-  max-width: 350px; /* Tamanho mais adequado para os inputs */
+  max-width: 350px;
+  /* Tamanho mais adequado para os inputs */
   margin-bottom: 15px;
 }
 
@@ -278,28 +365,35 @@ h3, h4 {
   color: #333;
 }
 
-.input-group select, .input-group input {
+.input-group select,
+.input-group input {
   width: 100%;
   padding: 12px;
   border: 2px solid #ccc;
   border-radius: 10px;
   font-size: 16px;
   margin-top: 5px;
-  box-sizing: border-box; /* Garante que o padding não quebre o layout */
+  box-sizing: border-box;
+  /* Garante que o padding não quebre o layout */
 }
 
-.input-group-alert select, .input-group-alert input {
-  border-color: red; /* Borda vermelha para erro */
+.input-group-alert select,
+.input-group-alert input {
+  border-color: red;
+  /* Borda vermelha para erro */
 }
 
-.input-group-alert select::placeholder, .input-group-alert input::placeholder {
-  color: red; /* Cor vermelha para erro no placeholder */
+.input-group-alert select::placeholder,
+.input-group-alert input::placeholder {
+  color: red;
+  /* Cor vermelha para erro no placeholder */
 }
 
 .phone-input {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+  justify-content: flex-start;
+  /* Alinha o conteúdo à esquerda */
   width: 100%;
   max-width: 350px;
 }

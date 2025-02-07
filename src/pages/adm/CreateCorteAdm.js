@@ -9,7 +9,6 @@ import Loading from '../../components/Loading';
 import ComboBox from '../../components/ComboBox';
 import { useCorteAdm } from '../../hooks/useCorteAdm'; // Importando o hook
 
-
 import 'react-datepicker/dist/react-datepicker.css';
 import '../../css/CreateCorteAdm.css';
 
@@ -39,12 +38,14 @@ export default function CreateCorteAdm() {
     setSelectedTime,
     alterData,
     handleCreateCorte,
+    ToastNotification,
   } = useCorteAdm(response, id); // Usando o hook
 
 
 
   return (
     <div className="container">
+      <ToastNotification/>
       <Loading show={loading} />
       <h1>Marcar Horário!</h1>
 

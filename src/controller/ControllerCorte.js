@@ -77,31 +77,59 @@ const getCortes = async (dataCorte, id) => {
 };
 
 const getServiceForCustomer = async (val, valSearch) => {
-    if(valSearch === 'telefone') valSearch = 'telefone_cliente';
-  
+    if (valSearch === 'telefone') valSearch = 'telefone_cliente';
+
     try {
-      // Obtendo a data atual no formato 'yyyy-MM-dd'
-      const today = new Date();
-      const todayStr = today.toISOString().split('T')[0]; // 'yyyy-mm-dd'
-  
-      const { data: servicos, error } = await supabase
-        .from('cortes')
-        .select('id, nome_cliente, sobrenome_cliente, telefone_cliente, data_corte, servico_id, servicos(nome, preco), barbeiros(nome)')
-        .eq(valSearch, val) // Pesquisar por ID ou Telefone
-        .gte('data_corte', todayStr); // Filtra pela data maior ou igual a hoje
-  
-      if (error) {
-        console.error('Erro ao obter serviços:', error.message);
-        return []; // Retorna um array vazio em caso de erro
-      }
-  
-      return servicos || []; // Retorna os serviços encontrados
+        // Obtendo a data atual no formato 'yyyy-MM-dd'
+        const today = new Date();
+        const todayStr = today.toISOString().split('T')[0]; // 'yyyy-mm-dd'
+
+        const { data: servicos, error } = await supabase
+            .from('cortes')
+            .select('id, nome_cliente, sobrenome_cliente, telefone_cliente, data_corte, servico_id, servicos(nome, preco), barbeiros(nome)')
+            .eq(valSearch, val) // Pesquisar por ID ou Telefone
+            .gte('data_corte', todayStr); // Filtra pela data maior ou igual a hoje
+
+        if (error) {
+            console.error('Erro ao obter serviços:', error.message);
+            return []; // Retorna um array vazio em caso de erro
+        }
+
+        return servicos || []; // Retorna os serviços encontrados
     } catch (err) {
-      console.error('Erro inesperado:', err.message);
-      return [];
+        console.error('Erro inesperado:', err.message);
+        return [];
     }
-  };  
+};
+
+const getCortesForBarbeiro = async (id_barbeiro, dataCorte) => {
+    const formattedDate = format(dataCorte, 'yyyy-MM-dd');
+
+    const { data: cortes, error } = await supabase
+        .from('cortes')
+        .select(`
+            id, 
+            nome_cliente, 
+            sobrenome_cliente, 
+            telefone_cliente, 
+            data_corte, 
+            servicos (nome, preco), 
+            barbeiros (nome)
+        `) // Inclui os relacionamentos
+        .eq('barbeiro_id', id_barbeiro)
+        .gte('data_corte', `${formattedDate} 00:00:00`)
+        .lte('data_corte', `${formattedDate} 23:59:59`);
+
+    if (error) {
+        console.error('Erro ao obter cortes:', error.message);
+        return [];
+    }
+
+    return cortes || [];
+};
+
+
 
 
 // Exportando a função
-export { deleteCorte, insertCorte, getCortes, getServiceForCustomer };
+export { deleteCorte, insertCorte, getCortes, getServiceForCustomer, getCortesForBarbeiro };

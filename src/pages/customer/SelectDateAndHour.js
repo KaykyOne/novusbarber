@@ -7,27 +7,34 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 import '../../css/SelectDateAndHour.css';
 import BackIcon from '@mui/icons-material/ArrowBack';
+import IconFront from '@mui/icons-material/ChevronLeft';
+import Iconbackside from '@mui/icons-material/ChevronRight';
 import RenderItem from '../../components/RenderItem';
 import useSelectDateAndHour from '../../hooks/useSelectDateAndHour';
 
 export default function SelectDateAndHour() {
     const location = useLocation();
     const { id, id_barbeiro, profissional } = location.state || {};
-    const { selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick } = useSelectDateAndHour(id, id_barbeiro, profissional);
-    
+    const { selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick, alterDateForButton } = useSelectDateAndHour(id, id_barbeiro, profissional);
+
     return (
         <div className='container'>
             <h2>Selecione uma data</h2>
             {/* DatePicker para selecionar a data */}
-            <DatePicker
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                dateFormat="dd/MM/yyyy"
-                minDate={new Date()}
-                placeholderText="Escolha uma data"
-                className="custom-datepicker-input" // Classe para o input
-                calendarClassName="custom-calendar" // Classe para o calendário
-            />
+            {/* <div className='container-horizontal'> */}
+                {/* <IconFront onClick={() => alterDateForButton('back')}/> */}
+                <DatePicker
+                    selected={selectedDate}
+                    onChange={(date) => setSelectedDate(date)}
+                    dateFormat="dd/MM/yyyy"
+                    minDate={new Date()}
+                    placeholderText="Escolha uma data"
+                    className="custom-datepicker-input" // Classe para o input
+                    calendarClassName="custom-calendar" // Classe para o calendário
+                />
+                {/* <Iconbackside onClick={() => alterDateForButton('front')}/> */}
+            {/* </div> */}
+
             <p>{diasSemana[diaSemana]}-feira</p>
             {loading ? (
                 <Loading show={loading} />

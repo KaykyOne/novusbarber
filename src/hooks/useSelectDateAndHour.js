@@ -55,9 +55,33 @@ export default function useSelectDateAndHour(id, id_barbeiro, profissional) {
         });
     };
 
+    const alterDateForButton = (type) => {
+        setSelectedDate(prevDate => {
+            let newDate = new Date(prevDate); // Criar uma nova instância de Date
+    
+            if (type === 'front') {
+                newDate.setDate(newDate.getDate() + 1);
+            } else if (type === 'back') {
+                newDate.setDate(newDate.getDate() - 1);
+            }
+    
+            // Verificação: Impedir datas anteriores a hoje
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); // Zerando horas para comparar só a data
+    
+            if (newDate < today) {
+                return prevDate; // Se a data for inválida, não altera
+            }
+    
+            return newDate; // Retorna a nova data válida
+        });
+    };
+    
+    
+
     const handleBack = () => {
         navigate(`/selectprofessional`, { state: { id } });
     };
 
-    return {selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick}
+    return {selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick, alterDateForButton}
 }

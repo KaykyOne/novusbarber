@@ -72,7 +72,7 @@ export default function Confirm() {
     };
 
     return (
-        <div className="confirm-container">
+        <div className="container">
             <h2 className="title">FINALIZAR</h2>
             
             {/* Usando o PersonalDataForm para renderizar os inputs */}

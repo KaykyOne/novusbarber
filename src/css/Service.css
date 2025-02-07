@@ -1,0 +1,67 @@
+.services-list {
+  display: flex;
+  flex-direction: column; /* Alinha os serviços um abaixo do outro */
+  gap: 15px; /* Espaço entre os serviços */
+  align-items: center; /* Centraliza os serviços na tela */
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px; /* Adiciona padding para dar espaço nas bordas */
+  box-sizing: border-box; /* Inclui o padding e border no cálculo de largura/altura */
+}
+
+.service-item {
+  background-color: #f0f0f0; /* Cor de fundo mais suave */
+  border-radius: 12px; /* Bordas arredondadas */
+  padding: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombras mais suaves */
+  width: 90%; /* Ocupa 90% da largura disponível */
+  max-width: 400px; /* Limita a largura máxima */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona animação ao passar o mouse */
+}
+
+.service-item:hover {
+  transform: translateY(-5px); /* Efeito de levantar o item */
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15); /* Aumenta a sombra no hover */
+}
+
+.service-item h2,
+.service-item h3 {
+  margin: 10px 0; /* Espaçamento entre os elementos de texto */
+  font-weight: 600; /* Maior destaque nos títulos */
+}
+
+.service-item h2 {
+  font-size: 1.4rem; /* Tamanho maior para o nome do serviço */
+}
+
+.service-item h3 {
+  font-size: 1.2rem; /* Tamanho adequado para o preço e tempo */
+  color: #333; /* Cor mais escura para melhorar a legibilidade */
+}
+
+.service-item h3:last-child {
+  font-size: 1rem; /* Menor tamanho para a última informação (preço ou tempo) */
+  color: #666; /* Cor mais suave */
+}
+
+.btn-edit {
+  background-color: #e0a800; /* Cor do botão de edição */
+  color: #fff; /* Texto branco */
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Efeito suave de mudança de cor */
+}
+
+.btn-edit:hover {
+  background-color: #d28f00; /* Cor de fundo mais escura no hover */
+}
+
+@media (max-width: 600px) {
+  .service-item {
+    width: 95%; /* Ajusta para ocupar mais espaço em telas pequenas */
+    max-width: none; /* Remove o limite de largura */
+  }
+}
