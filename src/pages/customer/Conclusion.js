@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import '../../css/Conclusion.css';
-import Button from '../../components/Button';
+import Button from '../../components/Buttons/Button';
 import { restoreColors } from '../../suport/Desgin';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckIcon from '@mui/icons-material/Check';
-import CopyIconButton from '../../components/CopyIconButton';
 import { useClipboard } from '../../hooks/useClipboard';  // Importando o hook
 
 export default function Conclusion() {

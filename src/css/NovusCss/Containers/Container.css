@@ -1,0 +1,14 @@
+/* Container geral que centraliza os elementos */
+.container {
+    display: flex;
+    background-color: var(--cor-fundo);
+    /* Se quiser usar a variável */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* Corrigi também "justify-content: flex;" que estava errado */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }

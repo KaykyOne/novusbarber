@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Button from "./Button";
-import '../css/modalConfirm.css';
+import '../../css/modalConfirm.css';
 
 export default function ModalConfirm({ text, onConfirm, onCancel }) {
     return (

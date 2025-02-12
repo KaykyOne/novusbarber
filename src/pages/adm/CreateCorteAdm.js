@@ -2,11 +2,11 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import BackIcon from '@mui/icons-material/ArrowBack';
 import ConfirmIcon from '@mui/icons-material/Check';
-import Button from '../../components/Button';
-import PersonalDataForm from '../../components/PersonalDataForm';
+import Button from '../../components/Buttons/Button';
+import PersonalDataForm from '../../components/Forms/PersonalDataForm';
 import DatePicker from 'react-datepicker';
-import Loading from '../../components/Loading';
-import ComboBox from '../../components/ComboBox';
+import Loading from '../../components/GeneralComponents/Loading';
+import ComboBox from '../../components/GeneralComponents/ComboBox';
 import { useCorteAdm } from '../../hooks/useCorteAdm'; // Importando o hook
 
 import 'react-datepicker/dist/react-datepicker.css';

@@ -3,9 +3,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import '../../css/Cancel.css';
 import { restoreColors } from '../../suport/Desgin';
 import { getServiceForCustomer } from '../../controller/ControllerCorte';
-import SearchForm from '../../components/SearchForm'; // Importando o formulário
-import ToggleSwitch from '../../components/ToggleSwitch';
-import FullScreenModal from '../../components/FullScreenModal '; // Importando o Modal
+import SearchForm from '../../components/Forms/SearchForm'; // Importando o formulário
+import ToggleSwitch from '../../components/GeneralComponents/ToggleSwitch';
+import FullScreenModal from '../../components/Modals/FullScreenModal '; // Importando o Modal
 
 export default function SeeService() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/FullScreenModal.css'; // Certifique-se de ter o CSS correto
+import '../../css/FullScreenModal.css'; // Certifique-se de ter o CSS correto
 
 const FullScreenModal = ({ isOpen, onClose, results }) => {
   if (!isOpen) return null; // Se o modal não estiver aberto, não renderiza nada

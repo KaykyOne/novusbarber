@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Loading.css'
+import '../../css/NovusCss/Components/Loading.css'
 
 
 export default function LoadingOverlay({ show }) {

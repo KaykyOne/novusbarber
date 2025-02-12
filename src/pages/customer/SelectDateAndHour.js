@@ -1,24 +1,25 @@
 import React from 'react';
 import { useLocation } from "react-router-dom";
-import Button from '../../components/Button';
-import Loading from '../../components/Loading';
+import Button from '../../components/Buttons/Button';
+import Loading from '../../components/GeneralComponents/Loading';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 import '../../css/SelectDateAndHour.css';
 import BackIcon from '@mui/icons-material/ArrowBack';
-import IconFront from '@mui/icons-material/ChevronLeft';
-import Iconbackside from '@mui/icons-material/ChevronRight';
-import RenderItem from '../../components/RenderItem';
+// import IconFront from '@mui/icons-material/ChevronLeft';
+// import Iconbackside from '@mui/icons-material/ChevronRight';
+import RenderItem from '../../components/Renders/RenderItem';
 import useSelectDateAndHour from '../../hooks/useSelectDateAndHour';
 
 export default function SelectDateAndHour() {
     const location = useLocation();
     const { id, id_barbeiro, profissional } = location.state || {};
-    const { selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick, alterDateForButton } = useSelectDateAndHour(id, id_barbeiro, profissional);
+    const { selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick, alterDateForButton,  ToastNotification} = useSelectDateAndHour(id, id_barbeiro, profissional);
 
     return (
         <div className='container'>
+            <ToastNotification/>
             <h2>Selecione uma data</h2>
             {/* DatePicker para selecionar a data */}
             {/* <div className='container-horizontal'> */}

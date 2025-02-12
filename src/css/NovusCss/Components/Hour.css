@@ -1,4 +1,6 @@
-
+/* Container para os botões de horário (alinhamento e responsividade) */
+/* Ajuste na lista de horários */
+/* Ajuste na lista de horários */
 .hour-container {
     display: flex;
     flex-wrap: wrap;
@@ -32,7 +34,6 @@
     /* Centraliza o texto */
 }
 
-
 /* Estilo dos botões de horário */
 /* Ajuste a largura dos botões */
 .hour-button {
@@ -62,72 +63,4 @@
     background-color: var(--cor-primaria);
     /* Cor ao clicar */
     transform: scale(0.95);
-}
-
-/* Estilo para mensagens de erro e status */
-.error-text {
-    text-align: center;
-    color: red;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-.loading-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Estilo da container de horários */
-/* Combine e ajuste as propriedades da .hour-container */
-.hour-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    /* Garante que os botões fiquem centralizados */
-    width: 100%;
-    padding: 10px;
-    max-height: 400px;
-    /* Limita a altura do contêiner */
-    overflow-y: auto;
-    /* Adiciona o scroll vertical */
-}
-
-
-/* Estilo da lista de horários */
-.hour-list {
-    justify-content: center;
-    align-items: center;
-    max-height: 400px;
-    /* Ajuste conforme necessário */
-    overflow-y: auto;
-    max-width: 500px;
-}
-
-
-/* Estilo dos botões de horário */
-.hour-button {
-    padding: 10px;
-    background-color: var(--cor-secundaria);
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.hour-button:hover {
-    background-color: var(--cor-primaria);
-}
-
-/* Ajuste para telas pequenas */
-@media (max-width: 600px) {
-    .hour-container {
-        justify-content: flex-start;
-        /* Ajusta para que os botões fiquem alinhados à esquerda em telas pequenas */
-    }
-
-    .hour-button {
-        min-width: 80px;
-        /* Botões podem ser menores em telas pequenas */
-    }
 }

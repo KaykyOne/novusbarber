@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/modalConfirm.css";
+import "../../css/modalConfirm.css";
 
 export default function GenericModal({ children }) { // Alterado de "child" para "children"
     return (

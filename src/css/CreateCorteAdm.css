@@ -1,3 +1,5 @@
+@import url('./NovusCss/Lists/ScrollableList.css');
+
 .data-container {
   display: flex;
   align-items: center;  /* Alinha na vertical */
@@ -10,18 +12,9 @@
   text-align: center;  /* Centraliza o texto dentro do h3 */
 }
 
-
-
-
 .horarios-ocupados {
   margin-bottom: 20px;
   align-items: center;
-}
-
-.scrollable-list {
-  max-height: 100px;
-  overflow-y: auto; /* Permite rolar a lista */
-  padding-right: 10px;
 }
 
 .horarios-container {

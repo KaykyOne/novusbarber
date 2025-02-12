@@ -15,6 +15,7 @@ import SeeService from './pages/customer/SeeService';
 import List from './pages/adm/List';
 import Service from './pages/adm/Services';
 import ManageDays from './pages/adm/ManageDays';
+import Config from './pages/adm/Config';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/list" element={<List />} />
           <Route path="/service" element={<Service />} />
           <Route path="/managedays" element={<ManageDays />} />
+          <Route path="/config" element={<Config />} />
         </Routes>
       </Router>
     </div>

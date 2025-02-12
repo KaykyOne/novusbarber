@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import '../../css/Confirm.css';
-import Button from '../../components/Button';
+import Button from '../../components/Buttons/Button';
 import { insertCorte } from '../../controller/ControllerCorte';
 import { restoreColors } from '../../suport/Desgin';
 import Corte from '../../class/Corte';
 import { format } from 'date-fns';
 import BackIcon from '@mui/icons-material/ArrowBack';
 import ConfirmIcon from '@mui/icons-material/Check';
-import PersonalDataForm from '../../components/PersonalDataForm'; // Importando o novo componente
+import PersonalDataForm from '../../components/Forms/PersonalDataForm'; // Importando o novo componente
 
 export default function Confirm() {
     const location = useLocation();

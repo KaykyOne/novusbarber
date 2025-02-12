@@ -1,11 +1,11 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
-import Loading from "../../components/Loading";
-import RenderItemComplex from "../../components/RenderItemComplex";
+import Loading from "../../components/GeneralComponents/Loading";
+import RenderItemComplex from "../../components/Renders/RenderItemComplex";
 import BackIcon from "@mui/icons-material/ArrowBack";
-import Button from "../../components/Button";
-import ModalConfirm from "../../components/ModalConfirm";
+import Button from "../../components/Buttons/Button";
+import ModalConfirm from "../../components/Modals/ModalConfirm";
 import { useCortes } from "../../hooks/useCortes";
 import "react-datepicker/dist/react-datepicker.css";
 import "../../css/List.css";

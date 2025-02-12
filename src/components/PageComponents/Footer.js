@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoNovusTech from '../imgs/logoNovusTech.png';
+import LogoNovusTech from '../../imgs/logoNovusTech.png';
 
 function Footer() {
     return (

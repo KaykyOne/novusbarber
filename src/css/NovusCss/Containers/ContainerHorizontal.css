@@ -1,0 +1,10 @@
+.container-horizontal {
+    display: flex;
+    flex-direction: row; /* Mantém os itens lado a lado */
+    align-items: center; /* Centraliza verticalmente os itens na linha */
+    justify-content: center; /* Mantém os itens alinhados à esquerda */
+    background-color: var(--cor-fundo);
+    width: 90%;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }

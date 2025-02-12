@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/Checkbox.css';
+import '../../css/NovusCss/Components/Checkbox.css';
 
 export default function Checkbox({ id, name, value, text, checked, onChange }) {
     const handleCheckboxChange = (e) => {

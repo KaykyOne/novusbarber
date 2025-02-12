@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
-import Button from "../../components/Button";
+import Button from "../../components/Buttons/Button";
 import BackIcon from "@mui/icons-material/ArrowBack";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import { restoreColors } from '../../suport/Desgin';
-import Loading from '../../components/Loading';
-import GenericModal from '../../components/GenericModal';
-import Input from '../../components/Input';
+import Loading from '../../components/GeneralComponents/Loading';
+import GenericModal from '../../components/Modals/GenericModal';
+import Input from '../../components/Inputs/Input';
 import { getServices, updateService, insertService } from '../../controller/ControllerService';
 import Servico from '../../class/Servico';
 import "../../css/Service.css";

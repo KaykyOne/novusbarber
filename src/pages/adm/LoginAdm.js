@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import '../../css/LoginAdm.css';
-import Button from '../../components/Button';
-import Loading from '../../components/Loading';
+import Button from '../../components/Buttons/Button';
+import Loading from '../../components/GeneralComponents/Loading';
 import BackIcon from '@mui/icons-material/ArrowBack';
 import ConfirmIcon from '@mui/icons-material/Check';
 import { restoreColors } from '../../suport/Desgin';
 import { Login, SaveDados, restoreDados } from '../../controller/ControllerProfessional';
-import Checkbox from '../../components/Checkbox';
+import Checkbox from '../../components/GeneralComponents/Checkbox';
 
 export default function LoginAdm() {
     const location = useLocation(); // Acessa o state da navegação

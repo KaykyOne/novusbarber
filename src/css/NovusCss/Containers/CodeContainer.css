@@ -1,0 +1,13 @@
+.code-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.code-container h1 {
+    font-size: 28px;
+    color: var(--cor-primaria);
+    font-weight: bold;
+}

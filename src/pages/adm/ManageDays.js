@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Button from "../../components/Button";
+import Button from "../../components/Buttons/Button";
 import BackIcon from "@mui/icons-material/ArrowBack";
 import { getHorarios, deleteHorario, insertHorario } from "../../controller/SelectDateAndHourController";
-import Loading from "../../components/Loading";
+import Loading from "../../components/GeneralComponents/Loading";
 import AddIcon from "@mui/icons-material/Add";
 import { restoreColors } from "../../suport/Desgin";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "../../css/List.css";
-import GenericModal from "../../components/GenericModal";
-import Input from "../../components/Input";
-import ToastNotification, { showToast } from "../../components/ToastNotification"; // Importando o componente e a função
+import GenericModal from "../../components/Modals/GenericModal";
+import Input from "../../components/Inputs/Input";
+import ToastNotification, { showToast } from "../../components/Notifications/ToastNotification"; // Importando o componente e a função
 
 export default function ManageDays() {
   const location = useLocation();

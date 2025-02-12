@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from './Input';
-import bandeiraDoBrasil from '../imgs/bandeiraBrIcone.png';
+import Input from '../Inputs/Input';
+import bandeiraDoBrasil from '../../imgs/bandeiraBrIcone.png';
 
 function PersonalDataForm({ nome, setNome, sobrenome, setSobrenome, telefone, setTelefone, erroCampos }) {
     const testTelefone = (valor) => {

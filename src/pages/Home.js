@@ -1,15 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../components/Button';
-import Loading from '../components/Loading';
+import Button from '../components/Buttons/Button';
+import Loading from '../components/GeneralComponents/Loading';
 import { useBarbearia } from '../hooks/useBarbearia'; // Hook personalizado
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CancelIcon from '@mui/icons-material/Cancel';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import SettingsIcon from '@mui/icons-material/Settings';
-import LinkLocalizacao from '../components/LinkLocalizacao';
-import ParadaDeBarbeiro from '../imgs/paradaDeBarbeiro.png';
-import Footer from '../components/Footer';
+import LinkLocalizacao from '../components/GeneralComponents/LinkLocalizacao';
+// import ParadaDeBarbeiro from '../imgs/paradaDeBarbeiro.png';
+import Footer from '../components/PageComponents/Footer';
 import '../css/Home.css'
 
 export default function Home() {

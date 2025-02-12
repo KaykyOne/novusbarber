@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom'; // Hook para acessar o state
 import { getProfessional } from '../../controller/ControllerProfessional';
 import '../../css/SelectProfessional.css'; // Arquivo CSS separado
-import Button from '../../components/Button';
+import Button from '../../components/Buttons/Button';
 import { useNavigate } from "react-router-dom";
-import Loading from '../../components/Loading';
+import Loading from '../../components/GeneralComponents/Loading';
 import { restoreColors } from '../../suport/Desgin';
 import BackIcon from '@mui/icons-material/ArrowBack';
 

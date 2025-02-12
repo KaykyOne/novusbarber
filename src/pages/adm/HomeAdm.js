@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Button from '../../components/Button';
+import Button from '../../components/Buttons/Button';
 import { useLocation } from 'react-router-dom'; // Hook para acessar o state
 import { useNavigate } from "react-router-dom";
-import Loading from '../../components/Loading';
+import Loading from '../../components/GeneralComponents/Loading';
 import BackIcon from '@mui/icons-material/ArrowBack';
 import AddCorteIcon from '@mui/icons-material/AddCircle';
 import CutIcon from "@mui/icons-material/ContentCut";
@@ -64,7 +64,7 @@ export default function HomeAdm() {
         Voltar
         <BackIcon />
       </Button>
-      <Button classNameType="btn-config" onClickButton={handleBack}>
+      <Button classNameType="btn-config" onClickButton={() => handleClickAlter('config')}>
         <ConfigIcon />
       </Button>
     </div>

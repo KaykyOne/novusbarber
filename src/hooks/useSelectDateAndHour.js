@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getHorariosLivres } from '../controller/ControllerProfessional';
 import { restoreColors } from '../suport/Desgin';
 import { format, getDay } from 'date-fns';
+import ToastNotification, { showToast } from "../components/Notifications/ToastNotification"; // Importando o componente e a função
 
 export default function useSelectDateAndHour(id, id_barbeiro, profissional) {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ export default function useSelectDateAndHour(id, id_barbeiro, profissional) {
     const [loading, setLoading] = useState(false); // Loading começa como falso
     const [selectedDate, setSelectedDate] = useState(new Date()); // Estado inicial sem data
     const diaSemana = getDay(selectedDate);
-    const diasSemana = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+    const diasSemana = ['domingo', 'segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sábado'];
 
     useEffect(() => {
         if (!selectedDate) return; // Só busca horários se uma data for selecionada
@@ -39,8 +40,18 @@ export default function useSelectDateAndHour(id, id_barbeiro, profissional) {
     const handleButtonClick = (hora) => {
         if (!selectedDate || !hora) return;
 
-        // Formata a data para "yyyy-MM-dd"
+        const dataAtual = new Date();
+        const horaAtual = new Date(); // Objeto Date com a hora atual
+    
+        // Converte horaSelecionada para um objeto Date válido
         const dataFormatada = format(selectedDate, 'yyyy-MM-dd');
+        const horaSelecionadaDate = new Date(`${dataFormatada}T${hora}`);
+    
+        // Verifica se a hora já passou
+        if (horaSelecionadaDate < dataAtual) {
+            showToast('Erro, hora passada!', 'error');
+            return;
+        }
 
         // Junta a data e a hora no formato "yyyy-MM-dd HH:mm:ss"
         const dataHora = `${dataFormatada} ${hora}`;
@@ -83,5 +94,5 @@ export default function useSelectDateAndHour(id, id_barbeiro, profissional) {
         navigate(`/selectprofessional`, { state: { id } });
     };
 
-    return {selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick, alterDateForButton}
+    return {selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick, alterDateForButton, ToastNotification}
 }

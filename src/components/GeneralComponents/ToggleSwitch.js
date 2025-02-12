@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/ToggleSwitch.css'; // Arquivo de CSS para estilizar o toggle
+import '../../css/NovusCss/Components/ToggleSwitch.css'; // Arquivo de CSS para estilizar o toggle
 
 export default function ToggleSwitch({ label, initialState = false, onChange }) {
   const [isOn, setIsOn] = useState(initialState);

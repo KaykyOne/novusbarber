@@ -1,0 +1,47 @@
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    /* Garante que o padding não quebre o layout */
+}
+
+.input-group {
+    width: 100%;
+    max-width: 350px;
+    /* Tamanho mais adequado para os inputs */
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group select,
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    /* Garante que o padding não quebre o layout */
+}
+
+.input-group-alert select,
+.input-group-alert input {
+    border-color: red;
+    /* Borda vermelha para erro */
+}
+
+.input-group-alert select::placeholder,
+.input-group-alert input::placeholder {
+    color: red;
+    /* Cor vermelha para erro no placeholder */
+}

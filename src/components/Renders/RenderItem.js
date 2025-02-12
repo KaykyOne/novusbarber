@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/SelectDateAndHour.css';
+import '../../css/SelectDateAndHour.css';
 
 function RenderItem({ item, index, handleButtonClick, valor, className }) {
     return (

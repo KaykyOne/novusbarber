@@ -1,6 +1,5 @@
 import React from 'react';
-import '../css/SelectDateAndHour.css';
-import Button from './Button';
+import Button from '../Buttons/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ForumIcon from '@mui/icons-material/Forum';
 

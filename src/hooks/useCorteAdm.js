@@ -5,7 +5,7 @@ import { getServices } from '../controller/ControllerService';
 import { useNavigate } from 'react-router-dom';
 import Corte from '../class/Corte';
 import { format } from 'date-fns';
-import ToastNotification, { showToast } from "../components/ToastNotification"; // Importando o componente e a função
+import ToastNotification, { showToast } from "../components/Notifications/ToastNotification"; // Importando o componente e a função
 
 export function useCorteAdm(response, id) {
   const navigate = useNavigate();

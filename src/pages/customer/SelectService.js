@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import { restoreColors } from '../../suport/Desgin';
 import { getServices } from '../../controller/ControllerService';
-import Loading from '../../components/Loading';
-import Button from '../../components/Button'; // Corrigido
+import Loading from '../../components/GeneralComponents/Loading';
+import Button from '../../components/Buttons/Button'; // Corrigido
 import '../../css/SelectServices.css';
 import BackIcon from '@mui/icons-material/ArrowBack';
 

@@ -1,0 +1,39 @@
+/* Estilo para o DatePicker (input de data) */
+.custom-timepicker-input,
+.custom-datepicker-input {
+  width: 80%;
+  /* Ajuste a largura conforme necessário */
+  max-width: 400px;
+  /* Limita a largura máxima */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.custom-timepicker-input:focus,
+.custom-datepicker-input:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Estilo do calendário */
+.custom-calendar {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-calendar .react-datepicker__day--selected {
+  background-color: var(--cor-primaria);
+  color: #fff;
+  border-radius: 50%;
+}
+
+.custom-calendar .react-datepicker__day--today {
+  font-weight: bold;
+  color: var(--cor-secundaria);
+}

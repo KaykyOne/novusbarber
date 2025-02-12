@@ -1,22 +1,22 @@
 import React from 'react';
-import Input from './Input';
-import Button from './Button';
+import Input from '../Inputs/Input';
+import Button from '../Buttons/Button';
 import BackIcon from '@mui/icons-material/ArrowBack';
 import ConfirmIcon from '@mui/icons-material/Check';
 
-export default function SearchForm({ valorPesquisa, setValorPesquisa, valor, onConfirm, onBack }) {
+export default function CancelForm({ codigoCancel, setCodigoCancel, onCancelConfirm, onBack }) {
     return (
-        <div className="form">
+        <div className="cancel-form">
             <Input
-                value={valorPesquisa} 
+                value={codigoCancel} 
                 className={"input"}
-                setValor={setValorPesquisa}
+                setValor={setCodigoCancel}
                 type={"text"}
-                placeholder={`${valor}...`}
+                placeholder={"Código..."}
             />
 
-            <Button classNameType="btn-primary" onClickButton={onConfirm}>
-                Pesquisar
+            <Button classNameType="btn-primary" onClickButton={onCancelConfirm}>
+                Confirmar Cancelamento
                 <ConfirmIcon/>
             </Button>
             <Button classNameType="btn-secondary" onClickButton={onBack}>
