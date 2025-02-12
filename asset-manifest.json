@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.ce0a938d.css",
+    "main.css": "/static/css/main.d9bfde2a.css",
     "main.js": "/static/js/main.6ad36fd3.js",
     "static/js/952.0ae6a47a.chunk.js": "/static/js/952.0ae6a47a.chunk.js",
     "static/media/logoNovusTech.png": "/static/media/logoNovusTech.b93cd39e6f6917377c74.png",
     "index.html": "/index.html",
-    "main.ce0a938d.css.map": "/static/css/main.ce0a938d.css.map",
+    "main.d9bfde2a.css.map": "/static/css/main.d9bfde2a.css.map",
     "main.6ad36fd3.js.map": "/static/js/main.6ad36fd3.js.map",
     "952.0ae6a47a.chunk.js.map": "/static/js/952.0ae6a47a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce0a938d.css",
+    "static/css/main.d9bfde2a.css",
     "static/js/main.6ad36fd3.js"
   ]
 }
