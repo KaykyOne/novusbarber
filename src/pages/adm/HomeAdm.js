@@ -8,7 +8,8 @@ import AddCorteIcon from '@mui/icons-material/AddCircle';
 import CutIcon from "@mui/icons-material/ContentCut";
 import ListIcon from '@mui/icons-material/List';
 import ConfigIcon from '@mui/icons-material/Settings';
-import EditHourIcon from '@mui/icons-material/EditCalendar';
+import EditHourIcon from '@mui/icons-material/EditCalendar';  
+import AlarmIcon from '@mui/icons-material/Alarm'
 import { restoreColors } from '../../suport/Desgin';
 
 export default function HomeAdm() {
@@ -58,6 +59,11 @@ export default function HomeAdm() {
       <Button classNameType="btn-tertiary" onClickButton={() => handleClickAlter('list')}>
         Listar Horários
         <ListIcon />
+      </Button>
+
+      <Button classNameType="btn-tertiary" onClickButton={() => handleClickAlter('exception')}>
+        Exceções de Horários
+        <AlarmIcon />
       </Button>
 
       <Button classNameType="btn-primary" onClickButton={handleBack}>

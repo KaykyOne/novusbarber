@@ -45,3 +45,12 @@
     color: red;
     /* Cor vermelha para erro no placeholder */
 }
+
+.phone-input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Alinha o conteúdo à esquerda */
+    width: 100%;
+    max-width: 350px;
+  }

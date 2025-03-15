@@ -12,11 +12,15 @@
   /* Cor de fundo */
   --cor-texto: #333;
   /* Cor do texto */
-  height: 100%;
-  /* Garante que o :root ocupe toda a altura da página */
-  width: 100%;
   /* Garante que o :root ocupe toda a largura */
   color-scheme: light !important;
+  background-color: var(--cor-fundo);
+  min-height: 100vh;  /* Permite scroll se o conteúdo for maior */
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Alinha os elementos em coluna */
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
 }
 
 @import url('./css/NovusCss/Containers/Container.css');
@@ -78,15 +82,6 @@ h4 {
 
 .linkLocalizacao:hover {
   background-color: gray;
-}
-
-.phone-input {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  /* Alinha o conteúdo à esquerda */
-  width: 100%;
-  max-width: 350px;
 }
 
 .flag {
