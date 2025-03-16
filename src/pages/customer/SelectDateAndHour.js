@@ -11,29 +11,30 @@ import BackIcon from '@mui/icons-material/ArrowBack';
 // import Iconbackside from '@mui/icons-material/ChevronRight';
 import RenderItem from '../../components/Renders/RenderItem';
 import useSelectDateAndHour from '../../hooks/useSelectDateAndHour';
+import ClickIcon from '@mui/icons-material/TouchApp';
 
 export default function SelectDateAndHour() {
     const location = useLocation();
     const { id, id_barbeiro, profissional } = location.state || {};
-    const { selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick, alterDateForButton,  ToastNotification} = useSelectDateAndHour(id, id_barbeiro, profissional);
+    const { selectedDate, setSelectedDate, loading, horas, diaSemana, diasSemana, handleBack, handleButtonClick, alterDateForButton, ToastNotification } = useSelectDateAndHour(id, id_barbeiro, profissional);
 
     return (
         <div className='container'>
-            <ToastNotification/>
+            <ToastNotification />
             <h2>Selecione uma data</h2>
             {/* DatePicker para selecionar a data */}
             {/* <div className='container-horizontal'> */}
-                {/* <IconFront onClick={() => alterDateForButton('back')}/> */}
-                <DatePicker
-                    selected={selectedDate}
-                    onChange={(date) => setSelectedDate(date)}
-                    dateFormat="dd/MM/yyyy"
-                    minDate={new Date()}
-                    placeholderText="Escolha uma data"
-                    className="custom-datepicker-input" // Classe para o input
-                    calendarClassName="custom-calendar" // Classe para o calendário
-                />
-                {/* <Iconbackside onClick={() => alterDateForButton('front')}/> */}
+            {/* <IconFront onClick={() => alterDateForButton('back')}/> */}
+            <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                dateFormat="dd/MM/yyyy"
+                minDate={new Date()}
+                placeholderText="Escolha uma data"
+                className="custom-datepicker-input" // Classe para o input
+                calendarClassName="custom-calendar" // Classe para o calendário
+            />
+            {/* <Iconbackside onClick={() => alterDateForButton('front')}/> */}
             {/* </div> */}
 
             <p>{diasSemana[diaSemana]}-feira</p>
@@ -62,7 +63,7 @@ export default function SelectDateAndHour() {
                 </div>
 
             )}
-
+            <div className='container-horizontal'><p>É só clicar no seu escolhido!</p> <ClickIcon /></div>
             <Button classNameType={"btn-secondary"} onClickButton={handleBack}>
                 Voltar
                 <BackIcon />

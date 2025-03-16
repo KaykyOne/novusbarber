@@ -13,6 +13,7 @@ import { CreateExceptionFunction, ListExceptionsFunction, DeleteExceptionFunctio
 import Excecao from '../../class/Excecao';
 import { format, set } from "date-fns";
 import GenericModal from '../../components/Modals/GenericModal';
+import ModalConfirm from '../../components/Modals/ModalConfirm'
 import "../../css/List.css";
 
 export default function CreateException() {
@@ -27,7 +28,9 @@ export default function CreateException() {
     const [tipo, setTipo] = useState("");
     const [descricao, setDescricao] = useState("");
     const [modalVisible, setModalVisible] = useState(false);
+    const [modalConfirm, setModalConfirmVisible] = useState(false);
     const [excecoes, setExcoes] = useState([]);
+    const [idDelete, setIdDelete] = useState(0);
 
     useEffect(() => {
         restoreColors();
@@ -85,11 +88,11 @@ export default function CreateException() {
 
     };
 
-    const handleDeleteException = async (id) => {
+    const handleDeleteException = async () => {
         setLoading(true);
         try {
             // Chama a função para excluir a exceção
-            let res = await DeleteExceptionFunction(id);
+            let res = await DeleteExceptionFunction(idDelete);
     
             // Verifica se a exclusão foi bem-sucedida
             if (res) {
@@ -106,8 +109,15 @@ export default function CreateException() {
             console.log(error);
         } finally {
             setLoading(false);
+            setModalConfirmVisible(false);
+            setIdDelete(0);
         }
     };
+
+    const startDelete = (id_delete) => {
+        setIdDelete(id_delete);
+        setModalConfirmVisible(true);      
+    }
     
     return (
         <div className="container">
@@ -127,7 +137,7 @@ export default function CreateException() {
                                     <p>Hora Fim: {item.horaFim}</p>
                                     <p>Tipo: {item.tipo}</p>
                                     <p>Descrição: {item.descricao}</p>
-                                    <Button classNameType="btn-primary" onClickButton={() => handleDeleteException(item.id)} disabled={loading}>
+                                    <Button classNameType="btn-primary" onClickButton={() => startDelete(item.id)} disabled={loading}>
                                         Excluir
                                     </Button>
                                 </div>
@@ -138,6 +148,13 @@ export default function CreateException() {
                     </div>
                 </GenericModal>
             )}
+            {modalConfirm && (
+                <ModalConfirm 
+                    onCancel={() => setModalConfirmVisible(false)}
+                    text={"deseja excluir essa exceção?"}
+                    onConfirm={handleDeleteException}/>
+            )}
+
             <Loading show={loading} />
             <h1>Criar Exceção de Horário</h1>
 

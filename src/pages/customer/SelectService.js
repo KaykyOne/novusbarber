@@ -6,6 +6,7 @@ import Loading from '../../components/GeneralComponents/Loading';
 import Button from '../../components/Buttons/Button'; // Corrigido
 import '../../css/SelectServices.css';
 import BackIcon from '@mui/icons-material/ArrowBack';
+import ClickIcon from '@mui/icons-material/TouchApp';
 
 export default function SelectService() {
     const location = useLocation();
@@ -73,6 +74,7 @@ export default function SelectService() {
                     </div>
                 </>
             )}
+            <div className='container-horizontal'><p>É só clicar no seu escolhido!</p> <ClickIcon /></div>
             <Button classNameType="btn-secondary" onClickButton={handleBack}>
                 Voltar
                 <BackIcon />

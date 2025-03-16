@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from '../../components/GeneralComponents/Loading';
 import { restoreColors } from '../../suport/Desgin';
 import BackIcon from '@mui/icons-material/ArrowBack';
+import ClickIcon from '@mui/icons-material/TouchApp';
 
 export default function SelectProfessional() {
     const location = useLocation(); // Acessa o state da navegação
@@ -75,6 +76,8 @@ export default function SelectProfessional() {
                     {barbeiros.map(renderProfessionalItem)}
                 </div>
             )}
+            <div className='container-horizontal'><p>É só clicar no seu escolhido!</p> <ClickIcon/></div>
+            
             <Button classNameType={"btn-secondary"} onClickButton={handleBack}>
                 Voltar
                 <BackIcon />
